@@ -1,0 +1,39 @@
+.pages-group{
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 10%;
+    max-width: 80%;
+    margin-top: 100px;
+}
+
+.page{
+    margin-bottom: 5pt;
+    padding: 5px;
+    background: lightgray;
+    border-radius: 5pt;
+}
+
+.pointer:hover{
+    cursor: pointer;
+}
+
+.btn-block{
+    margin-top: 5px;
+}
+
+.title{
+    text-align: center;
+    padding: 10px;
+}
+
+.btn{
+
+}
+
+.changed-text{
+    color: green;
+}
+
+.column-title{
+    text-align: center;
+}

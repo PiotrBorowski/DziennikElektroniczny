@@ -1,0 +1,47 @@
+input.active:valid {
+    box-shadow: 0 0 5px 1px green;
+  }
+  
+  input.active:invalid {
+    box-shadow: 0 0 5px 1px red;
+  }
+  textarea.valid {
+    box-shadow: 0 0 5px 1px green;
+  }
+  textarea.invalid {
+    box-shadow: 0 0 5px 1px red;
+  }
+  .error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+  .note {
+    color: gray;
+    margin: 8px 0;
+  }
+  .top-buffer {
+    margin-top: 15px;
+  }
+  
+  .form-center {
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 90px;
+    max-width: 600px;
+    margin-top: 100px;
+    border:thin black solid;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+  }
+  
+  .info {
+    padding-left: 0px !important;
+  }
+  
+  .button-form {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
+  }
