@@ -8,11 +8,11 @@ using Microsoft.EntityFrameworkCore;
 namespace DziennikElektroniczny.Repositories
 {
     public abstract class GenericRepository<C, T> :
-        IGenericRepository<T> where T : class where C : DbContext, new()
+        IGenericRepository<T> where T : class where C : DbContext
     {
-        private C _context;
+        private readonly C _context;
 
-        public GenericRepository(C context)
+        protected GenericRepository(C context)
         {
             _context = context;
         }
@@ -34,21 +34,20 @@ namespace DziennikElektroniczny.Repositories
         public virtual void Add(T entity)
         {
             _context.Set<T>().Add(entity);
+            _context.SaveChanges();
         }
 
         public virtual void Delete(T entity)
         {
             _context.Set<T>().Remove(entity);
+            _context.SaveChanges();
         }
 
         public virtual void Edit(T entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
-        }
-
-        public virtual void Save()
-        {
             _context.SaveChanges();
         }
+
     }
 }

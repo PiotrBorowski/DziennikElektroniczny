@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using DziennikElektroniczny.Models;
+using DziennikElektroniczny.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -33,6 +34,7 @@ namespace DziennikElektroniczny
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddCors();
             services.AddAutoMapper();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uzytkownik>, UzytkownikRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,10 +49,10 @@ namespace DziennikElektroniczny
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
 
             app.UseHttpsRedirection();
             app.UseMvc();
-            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin().AllowCredentials());
         }
     }
 }

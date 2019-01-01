@@ -10,9 +10,10 @@ import {
 } from 'react-router-dom';
 import "./Styles/Index.css";
 import NotFound from "./Components/NotFound"
-import AddPageForm from './Components/AddPageForm';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStroopwafel, faTrash, faPlay } from '@fortawesome/free-solid-svg-icons'
+import AddUzytkownikForm from './Components/AddUzytkownikForm';
+import UserList from './Components/UserList';
 
 library.add(faStroopwafel)
 library.add(faTrash)
@@ -27,7 +28,8 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={Home} />           
             <Route path="/unauthorized" component={Unauthorized}/>
-            <Route path="/AddPage" component={AddPageForm}/>
+            <Route path="/AddUser" component={AddUzytkownikForm}/>
+            <Route path="/Users" component={UserList}/>
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>

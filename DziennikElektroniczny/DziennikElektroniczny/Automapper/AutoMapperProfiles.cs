@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using DziennikElektroniczny.DTO;
+using DziennikElektroniczny.Models;
 
 namespace DziennikElektroniczny.Automapper
 {
-    public class AutoMapperProfiles
+    public class AutoMapperProfiles : Profile
     {
         public AutoMapperProfiles()
         {
-            //CreateMap<, >();
+            CreateMap<AddUzytkownikDTO,Uzytkownik>();
             //CreateMap<, >();
             //CreateMap<, >();
             //CreateMap<, >();
