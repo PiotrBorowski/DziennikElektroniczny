@@ -27,32 +27,61 @@ class Header extends Component {
 
         const Student = (
             <React.Fragment>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/student">Uczen</NavLink>
+                <li className="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Uczen
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/">Action</a>
+                        <a class="dropdown-item" href="/">Another action</a>
+                        <a class="dropdown-item" href="/">Something else here</a>
+                    </div>
                 </li>
             </React.Fragment>
         );
 
         const Teacher = (
             <React.Fragment>
-                <li className="nav-item">
-                    <NavLink className="nav-link" to="/teacher">Nauczyciel</NavLink>
+                <li className="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Nauczyciel
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/">Action</a>
+                        <a class="dropdown-item" href="/">Another action</a>
+                        <a class="dropdown-item" href="/">Something else here</a>
+                    </div>
                 </li>
             </React.Fragment>
         )
 
         const Parent = (
             <React.Fragment>
-              <li className="nav-item">
-                  <NavLink className="nav-link" to="/parent">Rodzic</NavLink>
+              <li className="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Rodzic
+                </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/">Action</a>
+                        <a class="dropdown-item" href="/">Another action</a>
+                        <a class="dropdown-item" href="/">Something else here</a>
+                    </div>
               </li>
             </React.Fragment>
         )
 
         const Admin = (
             <React.Fragment> 
-              <li className="nav-item">
-                  <NavLink className="nav-link" to="/admin">Admin</NavLink>
+              <li className="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administrator
+                </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/Users">Lista Użytkowników</a>
+                        <a class="dropdown-item" href="/AddUser">Dodaj Użytkownika</a>
+                        <a class="dropdown-item" href="/AddClass">Dodaj Klasę</a>
+                        <a class="dropdown-item" href="/AddStudent">Dodaj Ucznia</a>
+                    </div>
               </li>
             </React.Fragment>
         )
@@ -70,10 +99,6 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-
-              <li className="nav-item">
-                <NavLink className="nav-link active" to="/">Home<span className="sr-only">(current)</span></NavLink>
-              </li>
 
             {Student}
             {Parent}

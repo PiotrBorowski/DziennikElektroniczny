@@ -4,7 +4,7 @@ import "../Styles/Form.css"
 import axios from "axios"
 import {Input} from 'reactstrap'
 
-export default class AddUzytkownikForm extends Component{
+export default class AddUczenForm extends Component{
     constructor(props){
         super(props);
 
@@ -13,7 +13,10 @@ export default class AddUzytkownikForm extends Component{
             name: "",
             surName: "",
             phoneNumber: "",
-            roleId: 0
+            roleId: 4,
+            pesel: "",
+            parentId: 0,
+            classId: 0
         };
     }
 
@@ -29,8 +32,16 @@ export default class AddUzytkownikForm extends Component{
         this.setState({name: e.target.value});
     }
 
-    handleUserInputRoleId = e =>{
-        this.setState({roleId: e.target.value});
+    handleUserInputPesel = e =>{
+        this.setState({pesel: e.target.value});
+    }
+
+    handleUserInputParentId = e =>{
+        this.setState({parentId: e.target.value});
+    }
+
+    handleUserInputClassId = e =>{
+        this.setState({classId: e.target.value});
     }
 
     handleSubmit = e => {
@@ -40,11 +51,14 @@ export default class AddUzytkownikForm extends Component{
     }
 
     sendRequest = () => {
-        axios.post(BASE_URL + "/admin/dodajUzytkownika", {
+        axios.post(BASE_URL + "/admin/dodajUcznia", {
             Imie: this.state.name,
             Nazwisko: this.state.surName,
             NumerKontaktowy: this.state.phoneNumber,
-            IdRoli: this.state.roleId
+            IdRoli: this.state.roleId,
+            Pesel: this.state.pesel,
+            IdRodzica: this.state.parentId,
+            IdKlasy: this.state.classId
         }).then((response) => { 
             console.log(response);
             this.props.history.push('/');
@@ -63,7 +77,7 @@ export default class AddUzytkownikForm extends Component{
         return (
         <div className="form-center">
         <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Dodaj nowego użytkownika</h2>
+            <h2 className="title">Dodaj nowego ucznia</h2>
             <div className="form-group col-md-10 offset-md-1">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -109,14 +123,40 @@ export default class AddUzytkownikForm extends Component{
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Rola</label>
+                        <span class="input-group-text" id="inputGroup-sizing-default">PESEL</span>
                     </div>
-                    <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputRoleId}>
-                        <option selected value="1">Administrator</option>
-                        <option value="2">Nauczyciel</option>
-                        <option value="3">Rodzic</option>
+                    <input
+                        className="form-control"
+                        type="text"
+                        name="pesel"
+                        ref="pesel"
+                        value={this.state.pesel}
+                        onChange={this.handleUserInputPesel}
+                        required
+                        />
+                </div>      
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Rodzic</label>
+                    </div>
+                    <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputParentId}>
+                        <option selected value="1">Rodzic 1</option>
+                        <option value="2">Rodzic 2</option>
+                        <option value="3">Rodzic 3</option>
+                        <option value="4">Rodzic 4</option>
                     </Input>
-                </div>                
+                </div>  
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="inputGroupSelect01">Klasa</label>
+                    </div>
+                    <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputClassId}>
+                        <option selected value="1">Klasa 1</option>
+                        <option value="2">Klasa 2</option>
+                        <option value="3">Klasa 3</option>
+                        <option value="4">Klasa 4</option>
+                    </Input>
+                </div>           
             </div>
                     
             <div className="row">

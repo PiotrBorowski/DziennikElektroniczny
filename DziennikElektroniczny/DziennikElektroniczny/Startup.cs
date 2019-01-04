@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
+using DziennikElektroniczny.Services.AdminService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +36,10 @@ namespace DziennikElektroniczny
             services.AddCors();
             services.AddAutoMapper();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uzytkownik>, UzytkownikRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Klasa>, KlasaRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uczen>, UczenRepo>();
+            services.AddScoped<IAdminService, AdminService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

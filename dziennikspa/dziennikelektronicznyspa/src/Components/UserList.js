@@ -14,7 +14,7 @@ export default class UserList extends Component {
 
     componentDidMount(){
 
-            this.getUsers(BASE_URL + "/admin/Users");    
+            this.getUsers(BASE_URL + "/admin/Uzytkownicy");    
             console.log(this.state.users);
     }   
 
@@ -36,7 +36,7 @@ export default class UserList extends Component {
     }
 
     deleteUser = id =>{
-        return axios.delete(BASE_URL + "/admin/Users?userId=" + id)
+        return axios.delete(BASE_URL + "/admin/Uzytkownicy?userId=" + id)
         .then(this.setState({ pages: this.usersExceptSpecified(id)}))
         .then(() => this.props.history.push('/users'))
         .catch(err => {

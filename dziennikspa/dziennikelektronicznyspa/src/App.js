@@ -14,6 +14,8 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStroopwafel, faTrash, faPlay } from '@fortawesome/free-solid-svg-icons'
 import AddUzytkownikForm from './Components/AddUzytkownikForm';
 import UserList from './Components/UserList';
+import AddKlasaForm from './Components/AddKlasaForm';
+import AddUczenForm from './Components/AddUczenForm';
 
 library.add(faStroopwafel)
 library.add(faTrash)
@@ -30,6 +32,8 @@ class App extends Component {
             <Route path="/unauthorized" component={Unauthorized}/>
             <Route path="/AddUser" component={AddUzytkownikForm}/>
             <Route path="/Users" component={UserList}/>
+            <Route path="/AddClass" component={AddKlasaForm}/>
+            <Route path="/AddStudent" component={AddUczenForm}/>
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>

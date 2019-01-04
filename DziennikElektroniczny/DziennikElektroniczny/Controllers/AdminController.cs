@@ -6,6 +6,7 @@ using AutoMapper;
 using DziennikElektroniczny.DTO;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
+using DziennikElektroniczny.Services.AdminService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,25 +16,43 @@ namespace DziennikElektroniczny.Controllers
     [ApiController]
     public class AdminController : ControllerBase
     {
-        private GenericRepository<DziennikElektronicznyContext, Uzytkownik> _repo;
-        private IMapper _mapper;
+        private IAdminService _adminService;
 
-        public AdminController(GenericRepository<DziennikElektronicznyContext, Uzytkownik> repo, IMapper mapper)
+        public AdminController(IAdminService adminService)
         {
-            _repo = repo;
-            _mapper = mapper;
+            _adminService = adminService;
         }
 
-        [HttpGet("Users")]
+        [HttpGet("Uzytkownicy")]
         public List<Uzytkownik> GetAllUzytkownik()
         {
-            return _repo.GetAll().ToList();
+            return _adminService.GetAllUzytkownik();
         }
 
-        [HttpPost]
+        [HttpGet("Klasy")]
+        public List<Klasa> GetAllKlasa()
+        {
+            return _adminService.GetAllKlasa();
+        }
+
+        [HttpPost("dodajUzytkownika")]
         public IActionResult AddUzytkownik(AddUzytkownikDTO addDto)
         {          
-            _repo.Add(_mapper.Map<Uzytkownik>(addDto));
+            _adminService.AddUzytkownik(addDto);
+            return Ok();
+        }
+
+        [HttpPost("dodajKlase")]
+        public IActionResult AddKlasa(AddKlasaDTO addDto)
+        {
+            _adminService.AddKlasa(addDto);
+            return Ok();
+        }
+
+        [HttpPost("dodajUcznia")]
+        public IActionResult AddUczen(AddUczenDTO addDto)
+        {
+            _adminService.AddUczen(addDto);
             return Ok();
         }
     }
