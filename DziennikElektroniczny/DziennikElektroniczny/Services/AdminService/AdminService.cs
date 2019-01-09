@@ -15,7 +15,8 @@ namespace DziennikElektroniczny.Services.AdminService
         private GenericRepository<DziennikElektronicznyContext, Klasa> _klasaRepo;
         private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
         private IMapper _mapper;
-
+        private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
+        private GenericRepository<DziennikElektronicznyContext, Przedmiot> _przedmiotRepo;
 
 
         public AdminService
@@ -23,6 +24,10 @@ namespace DziennikElektroniczny.Services.AdminService
             GenericRepository<DziennikElektronicznyContext, Uzytkownik> uzytkownikRepo,
             GenericRepository<DziennikElektronicznyContext, Klasa> klasaRepo,
             GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
+            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
+            GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo,
+
+
             IMapper mapper
 
             )
@@ -30,6 +35,8 @@ namespace DziennikElektroniczny.Services.AdminService
             _uzytkownikRepo = uzytkownikRepo;
             _klasaRepo = klasaRepo;
             _uczenRepo = uczenRepo;
+            _planLekcjiRepo = planLekcjiRepo;
+            _przedmiotRepo = przedmiotRepo;
             _mapper = mapper;
         }
 
@@ -51,6 +58,7 @@ namespace DziennikElektroniczny.Services.AdminService
         public void AddKlasa(AddKlasaDTO addDto)
         {
             _klasaRepo.Add(_mapper.Map<Klasa>(addDto));
+            _planLekcjiRepo.Add(new PlanLekcji{IdKlasy = _klasaRepo.GetAll().Last().IdKlasy});
         }
 
         public void AddUczen(AddUczenDTO addDto)
@@ -60,6 +68,11 @@ namespace DziennikElektroniczny.Services.AdminService
             var uczen = _mapper.Map<Uczen>(addDto);
             uczen.IdUzytkownika = uzytkownik.IdUzytkownika;
             _uczenRepo.Add(uczen);
+        }
+
+        public void AddPrzedmiot(AddPrzedmiotDTO addDto)
+        {
+            _przedmiotRepo.Add(_mapper.Map<Przedmiot>(addDto));
         }
     }
 }

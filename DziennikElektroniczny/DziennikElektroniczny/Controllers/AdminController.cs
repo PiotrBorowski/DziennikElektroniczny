@@ -55,5 +55,12 @@ namespace DziennikElektroniczny.Controllers
             _adminService.AddUczen(addDto);
             return Ok();
         }
+
+        [HttpPost("dodajPrzedmiot")]
+        public IActionResult AddSubject(AddPrzedmiotDTO addDto)
+        {
+            _adminService.AddPrzedmiot(addDto);
+            return Ok();
+        }
     }
 }

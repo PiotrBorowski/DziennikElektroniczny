@@ -16,6 +16,8 @@ namespace DziennikElektroniczny.Automapper
             CreateMap<AddKlasaDTO,Klasa >();
             CreateMap<AddUczenDTO, Uczen>();
             CreateMap<AddUczenDTO, Uzytkownik>();
+            CreateMap<AddPrzedmiotDTO, Przedmiot>();
+
             //CreateMap<, >();
         }
     }

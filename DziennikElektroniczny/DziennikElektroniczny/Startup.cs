@@ -38,6 +38,13 @@ namespace DziennikElektroniczny
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uzytkownik>, UzytkownikRepo>();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Klasa>, KlasaRepo>();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uczen>, UczenRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, PlanLekcji>, PlanLekcjiRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna>, JednostkaLekcyjnaRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Przedmiot>, PrzedmiotRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Ocena>, OcenaRepo>();
+
+
+
             services.AddScoped<IAdminService, AdminService>();
 
         }

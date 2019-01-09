@@ -32,9 +32,7 @@ class Header extends Component {
                     Uczen
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/">Action</a>
-                        <a class="dropdown-item" href="/">Another action</a>
-                        <a class="dropdown-item" href="/">Something else here</a>
+                        <a class="dropdown-item" hraf="/">Action</a>
                     </div>
                 </li>
             </React.Fragment>
@@ -48,8 +46,7 @@ class Header extends Component {
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/">Action</a>
-                        <a class="dropdown-item" href="/">Another action</a>
-                        <a class="dropdown-item" href="/">Something else here</a>
+
                     </div>
                 </li>
             </React.Fragment>
@@ -78,6 +75,7 @@ class Header extends Component {
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/Users">Lista Użytkowników</a>
+                        <a class="dropdown-item" href="/Classes">Lista Klas</a>
                         <a class="dropdown-item" href="/AddUser">Dodaj Użytkownika</a>
                         <a class="dropdown-item" href="/AddClass">Dodaj Klasę</a>
                         <a class="dropdown-item" href="/AddStudent">Dodaj Ucznia</a>

@@ -4,20 +4,15 @@ import "../Styles/Form.css"
 import axios from "axios"
 import {Input} from 'reactstrap'
 
-export default class AddKlasaForm extends Component{
+export default class AddSubjectForm extends Component{
     constructor(props){
         super(props);
 
         this.state =
         {
             name: "",
-            year: "",
             teacherId: 0
         };
-    }
-
-    handleUserInputYear = e => {
-        this.setState({ year: e.target.value });
     }
 
     handleUserInputName = e =>{
@@ -35,10 +30,9 @@ export default class AddKlasaForm extends Component{
     }
 
     sendRequest = () => {
-        axios.post(BASE_URL + "/admin/dodajKlase", {
+        axios.post(BASE_URL + "/admin/dodajPrzedmiot", {
             Nazwa: this.state.name,
-            RokSzkolny: this.state.year,
-            IdWychowawcy: this.state.teacherId
+            IdProwadzacego: this.state.teacherId
         }).then((response) => { 
             console.log(response);
             this.props.history.push('/');
@@ -57,7 +51,7 @@ export default class AddKlasaForm extends Component{
         return (
         <div className="form-center">
         <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Dodaj nową klasę</h2>
+            <h2 className="title">Dodaj nowy Przedmiot</h2>
             <div className="form-group col-md-10 offset-md-1">
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -73,27 +67,14 @@ export default class AddKlasaForm extends Component{
                         required
                         />
                 </div>
+            
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Rok Szkolny</span>
-                    </div>
-                    <input
-                        className="form-control"
-                        type="text"
-                        name="year"
-                        ref="year"
-                        value={this.state.year}
-                        onChange={this.handleUserInputYear}
-                        required
-                        />
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <label class="input-group-text" for="inputGroupSelect01">Wychowawca</label>
+                        <label class="input-group-text" for="inputGroupSelect01">Nauczyciel prowadzący</label>
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputTeacherId}>
-                        <option selected value="6">Wychowawca 6</option>
-                        <option  value="13">Wychowawca 13</option>
+                        <option selected value="6">Nauczyciel 6</option>
+                        <option  value="13">Nauczyciel 13</option>
                     </Input>
                 </div>                
             </div>
