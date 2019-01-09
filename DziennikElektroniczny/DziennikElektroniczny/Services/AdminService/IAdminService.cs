@@ -15,5 +15,6 @@ namespace DziennikElektroniczny.Services.AdminService
         void AddKlasa(AddKlasaDTO addDto);
         void AddUczen(AddUczenDTO addDto);
         void AddPrzedmiot(AddPrzedmiotDTO addDto);
+        void AddJednostkaLekcyjna(AddJednostkaLekcyjnaDTO addDto);
     }
 }

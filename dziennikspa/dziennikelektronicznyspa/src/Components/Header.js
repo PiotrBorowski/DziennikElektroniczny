@@ -79,6 +79,9 @@ class Header extends Component {
                         <a class="dropdown-item" href="/AddUser">Dodaj Użytkownika</a>
                         <a class="dropdown-item" href="/AddClass">Dodaj Klasę</a>
                         <a class="dropdown-item" href="/AddStudent">Dodaj Ucznia</a>
+                        <a class="dropdown-item" href="/AddSubject">Stwórz Przedmiot</a>
+                        <a class="dropdown-item" href="/AddSubjectUnit">Dodaj Jednostkę Lekcyjną</a>
+
                     </div>
               </li>
             </React.Fragment>

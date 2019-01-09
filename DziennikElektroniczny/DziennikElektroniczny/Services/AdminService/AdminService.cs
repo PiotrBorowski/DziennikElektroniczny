@@ -17,6 +17,7 @@ namespace DziennikElektroniczny.Services.AdminService
         private IMapper _mapper;
         private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
         private GenericRepository<DziennikElektronicznyContext, Przedmiot> _przedmiotRepo;
+        private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
 
 
         public AdminService
@@ -26,6 +27,8 @@ namespace DziennikElektroniczny.Services.AdminService
             GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
             GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
             GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo,
+            GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
+
 
 
             IMapper mapper
@@ -37,6 +40,7 @@ namespace DziennikElektroniczny.Services.AdminService
             _uczenRepo = uczenRepo;
             _planLekcjiRepo = planLekcjiRepo;
             _przedmiotRepo = przedmiotRepo;
+            _jednostkaLekcyjnaRepo = jednostkaLekcyjnaRepo;
             _mapper = mapper;
         }
 
@@ -73,6 +77,11 @@ namespace DziennikElektroniczny.Services.AdminService
         public void AddPrzedmiot(AddPrzedmiotDTO addDto)
         {
             _przedmiotRepo.Add(_mapper.Map<Przedmiot>(addDto));
+        }
+
+        public void AddJednostkaLekcyjna(AddJednostkaLekcyjnaDTO addDto)
+        {
+            _jednostkaLekcyjnaRepo.Add(_mapper.Map<JednostkaLekcyjna>(addDto));
         }
     }
 }

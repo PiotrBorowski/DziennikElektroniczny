@@ -112,7 +112,8 @@ export default class AddUzytkownikForm extends Component{
                         <label class="input-group-text" for="inputGroupSelect01">Rola</label>
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputRoleId}>
-                        <option selected value="1">Administrator</option>
+                        <option value=''></option>
+                        <option  value="1">Administrator</option>
                         <option value="2">Nauczyciel</option>
                         <option value="3">Rodzic</option>
                     </Input>

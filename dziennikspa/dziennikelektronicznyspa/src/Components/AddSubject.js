@@ -73,7 +73,8 @@ export default class AddSubjectForm extends Component{
                         <label class="input-group-text" for="inputGroupSelect01">Nauczyciel prowadzący</label>
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputTeacherId}>
-                        <option selected value="6">Nauczyciel 6</option>
+                        <option value=''></option>
+                        <option value="6">Nauczyciel 6</option>
                         <option  value="13">Nauczyciel 13</option>
                     </Input>
                 </div>                

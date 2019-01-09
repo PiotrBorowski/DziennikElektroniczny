@@ -62,5 +62,12 @@ namespace DziennikElektroniczny.Controllers
             _adminService.AddPrzedmiot(addDto);
             return Ok();
         }
+
+        [HttpPost("dodajJednostkeLekcyjna")]
+        public IActionResult AddSubject(AddJednostkaLekcyjnaDTO addDto)
+        {
+            _adminService.AddJednostkaLekcyjna(addDto);
+            return Ok();
+        }
     }
 }

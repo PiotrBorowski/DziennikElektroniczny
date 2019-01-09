@@ -140,6 +140,7 @@ export default class AddUczenForm extends Component{
                         <label class="input-group-text" for="inputGroupSelect01">Rodzic</label>
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputParentId}>
+                    <option value=''></option>
                         <option selected value="1">Rodzic 1</option>
                         <option value="2">Rodzic 2</option>
                         <option value="3">Rodzic 3</option>
@@ -151,7 +152,8 @@ export default class AddUczenForm extends Component{
                         <label class="input-group-text" for="inputGroupSelect01">Klasa</label>
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputClassId}>
-                        <option selected value="1">Klasa 1</option>
+                    <option value=''></option>
+                        <option value="1">Klasa 1</option>
                         <option value="2">Klasa 2</option>
                         <option value="3">Klasa 3</option>
                         <option value="4">Klasa 4</option>

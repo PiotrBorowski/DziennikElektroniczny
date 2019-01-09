@@ -17,6 +17,8 @@ import UserList from './Components/UserList';
 import ClassList from './Components/ClassList';
 import AddKlasaForm from './Components/AddKlasaForm';
 import AddUczenForm from './Components/AddUczenForm';
+import AddSubjectForm from './Components/AddSubject';
+import AddSubjectUnitForm from './Components/AddSubjectUnit.Form';
 
 library.add(faStroopwafel)
 library.add(faTrash)
@@ -36,6 +38,10 @@ class App extends Component {
             <Route path="/AddClass" component={AddKlasaForm}/>
             <Route path="/AddStudent" component={AddUczenForm}/>
             <Route path="/Classes" component={ClassList}/>
+            <Route path="/AddSubject" component={AddSubjectForm}/>
+            <Route path="/AddSubjectUnit" component={AddSubjectUnitForm}/>
+
+
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>
