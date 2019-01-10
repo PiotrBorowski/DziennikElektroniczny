@@ -6,6 +6,7 @@ using AutoMapper;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
 using DziennikElektroniczny.Services.AdminService;
+using DziennikElektroniczny.Services.UserService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -47,7 +48,7 @@ namespace DziennikElektroniczny
             services.AddScoped < GenericRepository <DziennikElektronicznyContext, Obecnosc>, ObecnoscRepo>();
 
 
-
+            services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
 
         }

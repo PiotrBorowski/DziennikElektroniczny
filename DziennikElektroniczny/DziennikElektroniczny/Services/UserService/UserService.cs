@@ -42,9 +42,14 @@ namespace DziennikElektroniczny.Services.UserService
             _planLekcjiRepo = planLekcjiRepo;
         }
 
-        public List<Wiadomosc> GetMessages(int userId)
+        public List<Wiadomosc> GetMessagesSend(int userId)
         {
-            return _wiadomoscRepo.GetAll().Where(x => x.IdNadawcy == userId || x.IdOdbiorcy == userId).ToList();
+            return _wiadomoscRepo.GetAll().Where(x => x.IdNadawcy == userId).ToList();
+        }
+
+        public List<Wiadomosc> GetMessagesReceived(int userId)
+        {
+            return _wiadomoscRepo.GetAll().Where(x => x.IdOdbiorcy == userId).ToList();
         }
 
         public List<Uwaga> GetSchoolNotes(int userId)

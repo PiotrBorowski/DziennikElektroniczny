@@ -32,7 +32,12 @@ class Header extends Component {
                     Uczen
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" hraf="/">Action</a>
+                        <a class="dropdown-item" href="/">Wiadomości</a>
+                        <a class="dropdown-item" href="/">Uwagi</a>
+                        <a class="dropdown-item" href="/">Obecności</a>
+                        <a class="dropdown-item" href="/">Oceny</a>
+                        <a class="dropdown-item" href="/">Plan Lekcji</a>
+
                     </div>
                 </li>
             </React.Fragment>
@@ -45,8 +50,10 @@ class Header extends Component {
                     Nauczyciel
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/">Action</a>
-
+                        <a class="dropdown-item" href="/">Dodaj Ocene</a>
+                        <a class="dropdown-item" href="/">Usprawiedliwienia</a>
+                        <a class="dropdown-item" href="/">Uwagi</a>
+                        <a class="dropdown-item" href="/">Dodaj Lekcję</a>
                     </div>
                 </li>
             </React.Fragment>
@@ -59,9 +66,8 @@ class Header extends Component {
                     Rodzic
                 </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/">Action</a>
-                        <a class="dropdown-item" href="/">Another action</a>
-                        <a class="dropdown-item" href="/">Something else here</a>
+                        <a class="dropdown-item" href="/">Usprawieliwienie</a>
+                        <a class="dropdown-item" href="/">Oceny dzieci</a>
                     </div>
               </li>
             </React.Fragment>
@@ -75,10 +81,10 @@ class Header extends Component {
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/Users">Lista Użytkowników</a>
-                        <a class="dropdown-item" href="/Classes">Lista Klas</a>
                         <a class="dropdown-item" href="/AddUser">Dodaj Użytkownika</a>
+                        <a class="dropdown-item" href="/AddStudent">Dodaj Ucznia</a>                       
+                        <a class="dropdown-item" href="/Classes">Lista Klas</a>
                         <a class="dropdown-item" href="/AddClass">Dodaj Klasę</a>
-                        <a class="dropdown-item" href="/AddStudent">Dodaj Ucznia</a>
                         <a class="dropdown-item" href="/AddSubject">Stwórz Przedmiot</a>
                         <a class="dropdown-item" href="/AddSubjectUnit">Dodaj Jednostkę Lekcyjną</a>
 

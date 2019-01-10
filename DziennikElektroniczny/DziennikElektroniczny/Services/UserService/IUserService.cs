@@ -6,9 +6,10 @@ using DziennikElektroniczny.Models;
 
 namespace DziennikElektroniczny.Services.UserService
 {
-    interface IUserService
+    public interface IUserService
     {
-        List<Wiadomosc> GetMessages(int userId);
+        List<Wiadomosc> GetMessagesSend(int userId);
+        List<Wiadomosc> GetMessagesReceived(int userId);
         List<Uwaga> GetSchoolNotes(int userId);
         List<Obecnosc> GetSchoolPresenceList(int userId);
         List<Ocena> GetGradeList(int userId);
