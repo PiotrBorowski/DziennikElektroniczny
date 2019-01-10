@@ -91,7 +91,7 @@ export default class AddSubjectUnitForm extends Component{
                     </div>
                     <input
                         className="form-control"
-                        type="text"
+                        type="time"
                         name="hour"
                         ref="hour"
                         value={this.state.hour}

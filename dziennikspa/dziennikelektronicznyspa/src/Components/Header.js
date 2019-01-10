@@ -35,7 +35,7 @@ class Header extends Component {
                         <a class="dropdown-item" href="/">Wiadomości</a>
                         <a class="dropdown-item" href="/">Uwagi</a>
                         <a class="dropdown-item" href="/">Obecności</a>
-                        <a class="dropdown-item" href="/">Oceny</a>
+                        <a class="dropdown-item" href="/Grades">Oceny</a>
                         <a class="dropdown-item" href="/">Plan Lekcji</a>
 
                     </div>

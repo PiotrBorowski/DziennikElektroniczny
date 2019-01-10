@@ -5,6 +5,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
+using DziennikElektroniczny.ViewModels;
 
 namespace DziennikElektroniczny.Services.UserService
 {
@@ -17,6 +18,8 @@ namespace DziennikElektroniczny.Services.UserService
         private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
         private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
         private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
+        private GenericRepository<DziennikElektronicznyContext, Przedmiot> _przedmiotRepo;
+
 
 
 
@@ -28,8 +31,8 @@ namespace DziennikElektroniczny.Services.UserService
             GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
             GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
             GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
-            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo
-
+            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
+            GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo
 
             )
         {
@@ -40,6 +43,7 @@ namespace DziennikElektroniczny.Services.UserService
             _jednostkaLekcyjnaRepo = jednostkaLekcyjnaRepo;
             _uczenRepo = uczenRepo;
             _planLekcjiRepo = planLekcjiRepo;
+            _przedmiotRepo = przedmiotRepo;
         }
 
         public List<Wiadomosc> GetMessagesSend(int userId)
@@ -62,9 +66,18 @@ namespace DziennikElektroniczny.Services.UserService
             return _obecnoscRepo.GetAll().Where(x => x.IdUcznia == userId).ToList();
         }
 
-        public List<Ocena> GetGradeList(int userId)
+        public List<OcenaViewModel> GetGradeList(int userId)
         {
-            return _ocenaRepo.GetAll().Where(x => x.IdUcznia == userId).ToList();
+            var ocenaList = _ocenaRepo.GetAll().Where(x => x.IdUcznia == userId).ToList();
+
+            var ocenaViewModelList = ocenaList.Select(x => new OcenaViewModel
+            {
+                Przedmiot = _przedmiotRepo.FindBy(y => y.IdPrzedmiotu == x.IdPrzedmiotu).First().Nazwa,
+                KategoriaOceny = x.IdKategoriiOceny,
+                Wartosc = x.Wartosc
+            }).ToList();
+
+            return ocenaViewModelList;
         }
 
         public List<JednostkaLekcyjna> GetJednostkaLekcyjnaList(int userId)

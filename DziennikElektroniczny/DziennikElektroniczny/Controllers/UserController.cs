@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Services.UserService;
+using DziennikElektroniczny.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -33,7 +34,7 @@ namespace DziennikElektroniczny.Controllers
         }
 
         [HttpGet("Oceny")]
-        public List<Ocena> GetGrades(int id)
+        public List<OcenaViewModel> GetGrades(int id)
         {
             return _userService.GetGradeList(id);
         }
