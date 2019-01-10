@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios"
 import {BASE_URL} from "../constants"
-import User from "./User"
 import "../Styles/Page.css"
 import ReactTable from "react-table"
 import 'react-table/react-table.css'
@@ -40,19 +39,6 @@ export default class GradeList extends Component {
             {id:'Kategoria',Header:'Kategoria', accessor: d => this.GradeCategory(d.kategoriaOceny)}
     ]
         return ( <ReactTable data={this.state.grades} columns={columns}/>);
-    }
-
-    deleteUser = id =>{
-        return axios.delete(BASE_URL + "/admin/Uzytkownicy?userId=" + id)
-        .then(this.setState({ pages: this.usersExceptSpecified(id)}))
-        .then(() => this.props.history.push('/users'))
-        .catch(err => {
-            console.log(err);
-        })
-    }
-
-    usersExceptSpecified = id =>{
-        return this.state.users.filter(user => user.userId !== id)
     }
 
     GradeCategory(id)

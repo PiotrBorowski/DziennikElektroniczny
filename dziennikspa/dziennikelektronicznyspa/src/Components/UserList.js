@@ -43,18 +43,7 @@ export default class UserList extends Component {
         return ( <ReactTable data={this.state.users} columns={columns}/>);
     }
 
-    deleteUser = id =>{
-        return axios.delete(BASE_URL + "/admin/Uzytkownicy?userId=" + id)
-        .then(this.setState({ pages: this.usersExceptSpecified(id)}))
-        .then(() => this.props.history.push('/users'))
-        .catch(err => {
-            console.log(err);
-        })
-    }
 
-    usersExceptSpecified = id =>{
-        return this.state.users.filter(user => user.userId !== id)
-    }
 
     Role(roleId)
     {

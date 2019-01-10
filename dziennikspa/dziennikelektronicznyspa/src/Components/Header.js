@@ -106,12 +106,14 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
-
+            
             {Student}
             {Parent}
             {Teacher}
             {Admin}
-
+            <li className="nav-item dropdown">
+            <NavLink className="nav-link" to="/Messages">Wiadomości</NavLink>
+            </li>
 
             </ul>
           </div>   
