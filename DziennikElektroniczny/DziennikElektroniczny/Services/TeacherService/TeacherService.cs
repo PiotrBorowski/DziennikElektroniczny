@@ -20,9 +20,19 @@ namespace DziennikElektroniczny.Services.TeacherService
 
         private IMapper _mapper;
 
-        public TeacherService(GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo, IMapper mapper)
+        public TeacherService(
+            GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
+            GenericRepository<DziennikElektronicznyContext, Uwaga> uwagaRepo,
+         GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
+        GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
+         GenericRepository<DziennikElektronicznyContext, ListaObecnosci> listaObecnosciRepo,
+        IMapper mapper)
         {
             _ocenaRepo = ocenaRepo;
+            _uwagaRepo = uwagaRepo;
+            _lekcjaRepo = lekcjaRepo;
+            _obecnoscRepo = obecnoscRepo;
+            _listaObecnosciRepo = listaObecnosciRepo;
             _mapper = mapper;
         }
 

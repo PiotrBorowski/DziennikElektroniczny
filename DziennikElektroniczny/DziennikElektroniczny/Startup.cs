@@ -45,8 +45,10 @@ namespace DziennikElektroniczny
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Przedmiot>, PrzedmiotRepo>();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Ocena>, OcenaRepo>();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Wiadomosc>, WiadomoscRepo>();
-            services.AddScoped < GenericRepository < DziennikElektronicznyContext, Uwaga >, UwagaRepo>();
-            services.AddScoped < GenericRepository <DziennikElektronicznyContext, Obecnosc>, ObecnoscRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uwaga >, UwagaRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Obecnosc>, ObecnoscRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Lekcja>, LekcjaRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, ListaObecnosci>, ListaObecnosciRepo>();
 
 
             services.AddScoped<IUserService, UserService>();

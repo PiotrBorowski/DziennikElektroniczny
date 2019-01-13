@@ -30,15 +30,18 @@ namespace DziennikElektroniczny.Controllers
         [HttpPost("dodajUwage")]
         public IActionResult AddSchoolNote(AddUwagaDTO addDto)
         {
+            addDto.IdNauczyciela = 6;
             _teacherService.AddSchoolNote(addDto);
             return Ok();
         }
+
         [HttpPost("dodajLekcje")]
         public IActionResult AddLesson(AddLekcjaDTO addDto)
         {
             _teacherService.AddLesson(addDto);
             return Ok();
         }
+
         [HttpPost("dodajObecnosc")]
         public IActionResult AddSchoolPresence(AddObecnoscDTO addDto)
         {

@@ -24,6 +24,8 @@ import Messages from './Components/Messages';
 import SendMessageForm from './Components/SendMessageForm';
 import LessonList from './Components/LessonList';
 import AddGradeForm from './Components/AddGradeForm';
+import AddLessonForm from './Components/AddLessonForm';
+import AddSchoolNoteForm from './Components/AddSchoolNoteForm';
 
 library.add(faStroopwafel)
 library.add(faTrash)
@@ -50,6 +52,8 @@ class App extends Component {
             <Route path="/SendMessage" component={SendMessageForm}/>
             <Route path="/LessonList" component={LessonList}/>
             <Route path="/AddGrade" component={AddGradeForm}/>
+            <Route path="/AddLesson" component={AddLessonForm}/>
+            <Route path="/AddSchoolNote" component={AddSchoolNoteForm}/>
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>
