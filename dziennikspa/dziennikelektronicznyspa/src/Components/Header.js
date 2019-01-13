@@ -4,6 +4,7 @@ import "../Styles/Index.css";
 import TokenHelper from '../helpers/tokenHelper'
 import {connect} from 'react-redux'
 import { CheckUserToken } from "../Actions/userActions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
     constructor(props){
@@ -36,7 +37,7 @@ class Header extends Component {
                         <a class="dropdown-item" href="/">Uwagi</a>
                         <a class="dropdown-item" href="/">Obecności</a>
                         <a class="dropdown-item" href="/Grades">Oceny</a>
-                        <a class="dropdown-item" href="/">Plan Lekcji</a>
+                        <a class="dropdown-item" href="/LessonList">Plan Lekcji</a>
 
                     </div>
                 </li>
@@ -112,7 +113,11 @@ class Header extends Component {
             {Teacher}
             {Admin}
             <li className="nav-item dropdown">
-            <NavLink className="nav-link" to="/Messages">Wiadomości</NavLink>
+            <NavLink className="nav-link" to="/Messages"><i class="fas fa-envelope"></i></NavLink>
+            </li>
+
+            <li>
+            <NavLink className="nav-link" to="/SendMessage"><i class="fa fa-paper-plane" aria-hidden="true"></i></NavLink>
             </li>
 
             </ul>

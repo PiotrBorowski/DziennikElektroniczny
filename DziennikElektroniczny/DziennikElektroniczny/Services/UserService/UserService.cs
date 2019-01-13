@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using AutoMapper;
+using DziennikElektroniczny.DTO;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
 using DziennikElektroniczny.ViewModels;
@@ -19,7 +21,7 @@ namespace DziennikElektroniczny.Services.UserService
         private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
         private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
         private GenericRepository<DziennikElektronicznyContext, Przedmiot> _przedmiotRepo;
-
+        private IMapper _mapper;
 
 
 
@@ -32,7 +34,8 @@ namespace DziennikElektroniczny.Services.UserService
             GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
             GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
             GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
-            GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo
+            GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo,
+            IMapper mapper
 
             )
         {
@@ -44,6 +47,7 @@ namespace DziennikElektroniczny.Services.UserService
             _uczenRepo = uczenRepo;
             _planLekcjiRepo = planLekcjiRepo;
             _przedmiotRepo = przedmiotRepo;
+            _mapper = mapper;
         }
 
         public List<Wiadomosc> GetMessagesSend(int userId)
@@ -80,11 +84,28 @@ namespace DziennikElektroniczny.Services.UserService
             return ocenaViewModelList;
         }
 
-        public List<JednostkaLekcyjna> GetJednostkaLekcyjnaList(int userId)
+        public List<JednostkaLekcyjnaViewModel> GetJednostkaLekcyjnaList(int userId)
         {
             var classId = _uczenRepo.FindBy(x => x.IdUzytkownika == userId).First().IdKlasy;
             var lessonListId = _planLekcjiRepo.FindBy(x => x.IdKlasy == classId).First().IdPlanuLekcji;
-            return _jednostkaLekcyjnaRepo.GetAll().Where(x => x.IdPlanuLekcji == lessonListId).ToList();
+
+            var lessonList = _jednostkaLekcyjnaRepo.GetAll().Where(x => x.IdPlanuLekcji == lessonListId).ToList();
+
+            var viewModel = lessonList.Select(x =>
+                new JednostkaLekcyjnaViewModel
+                {
+                    Przedmiot = _przedmiotRepo.FindBy(p => p.IdPrzedmiotu == x.IdPrzedmiotu).First().Nazwa,
+                    Godzina = x.Godzina,
+                    DzienTygodnia = x.DzienTygodnia,
+                    Sala = x.Sala
+                }).ToList();
+
+            return viewModel;
+        }
+
+        public void SendMessage(SendWiadomoscDTO addDto)
+        {
+            _wiadomoscRepo.Add(_mapper.Map<Wiadomosc>(addDto));
         }
     }
 }

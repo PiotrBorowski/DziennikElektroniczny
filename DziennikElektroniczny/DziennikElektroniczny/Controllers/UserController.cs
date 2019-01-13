@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DziennikElektroniczny.DTO;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Services.UserService;
 using DziennikElektroniczny.ViewModels;
@@ -40,7 +41,7 @@ namespace DziennikElektroniczny.Controllers
         }
 
         [HttpGet("PlanLekcji")]
-        public List<JednostkaLekcyjna> GetLessonList(int id)
+        public List<JednostkaLekcyjnaViewModel> GetLessonList(int id)
         {
             return _userService.GetJednostkaLekcyjnaList(id);
         }
@@ -55,6 +56,14 @@ namespace DziennikElektroniczny.Controllers
         public List<Obecnosc> GetPresenceList(int id)
         {
             return _userService.GetSchoolPresenceList(id);
+        }
+
+        [HttpPost("dodajWiadomosc")]
+        public IActionResult SendMessage(SendWiadomoscDTO addDto)
+        {
+            addDto.IdNadawcy = 2;
+            _userService.SendMessage(addDto);
+            return Ok();
         }
     }
 }

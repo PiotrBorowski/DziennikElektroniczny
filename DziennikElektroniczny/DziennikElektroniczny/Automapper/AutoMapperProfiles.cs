@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using DziennikElektroniczny.DTO;
 using DziennikElektroniczny.Models;
+using DziennikElektroniczny.ViewModels;
 
 namespace DziennikElektroniczny.Automapper
 {
@@ -17,7 +18,8 @@ namespace DziennikElektroniczny.Automapper
             CreateMap<AddUczenDTO, Uczen>();
             CreateMap<AddUczenDTO, Uzytkownik>();
             CreateMap<AddPrzedmiotDTO, Przedmiot>();
-
+            CreateMap<SendWiadomoscDTO, Wiadomosc>();
+            CreateMap<JednostkaLekcyjna, JednostkaLekcyjnaViewModel>();
             //CreateMap<, >();
         }
     }

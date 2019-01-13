@@ -10,11 +10,6 @@ export default class Footer extends Component{
         <footer className="footer">
             <div className="container">
                     <p>&copy; {new Date().getFullYear()} Copyright: Piotr Borowski Bartosz Powęska</p>
-                    <div className="footer-icons">
-                            <a className="footer-icons" href="https://github.com/PiotrBorowski" target="_blank" rel="noopener noreferrer"> 
-                                <FontAwesomeIcon icon={brands.faGithub} size="2x" color="white"/>
-                            </a> 
-                </div>
             </div>
         </footer>
         )
