@@ -8,9 +8,9 @@ namespace DziennikElektroniczny.Services.TeacherService
 {
     public interface ITeacherService
     {
-        void AddOcena(AddOcenaDTO addDto);
-        void AddUwaga(AddUwagaDTO addDto);
-        void AddLekcja(AddLekcjaDTO addDto);
-        void AddObecnoscList(AddObecnoscDTO addDto);
+        void AddGrade(AddOcenaDTO addDto);
+        void AddSchoolNote(AddUwagaDTO addDto);
+        void AddLesson(AddLekcjaDTO addDto);
+        void AddPresenceList(AddObecnoscDTO addDto);
     }
 }

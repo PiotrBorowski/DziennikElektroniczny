@@ -26,17 +26,17 @@ namespace DziennikElektroniczny.Services.TeacherService
             _mapper = mapper;
         }
 
-        public void AddOcena(AddOcenaDTO addDto)
+        public void AddGrade(AddOcenaDTO addDto)
         {
             _ocenaRepo.Add(_mapper.Map<Ocena>(addDto));
         }
 
-        public void AddUwaga(AddUwagaDTO addDto)
+        public void AddSchoolNote(AddUwagaDTO addDto)
         {
             _uwagaRepo.Add(_mapper.Map<Uwaga>(addDto));
         }
 
-        public void AddLekcja(AddLekcjaDTO addDto)
+        public void AddLesson(AddLekcjaDTO addDto)
         {
             _lekcjaRepo.Add(_mapper.Map<Lekcja>(addDto));
             _listaObecnosciRepo.Add(new ListaObecnosci
@@ -45,7 +45,7 @@ namespace DziennikElektroniczny.Services.TeacherService
             });
         }
 
-        public void AddObecnoscList(AddObecnoscDTO addDto)
+        public void AddPresenceList(AddObecnoscDTO addDto)
         {
             _obecnoscRepo.Add(_mapper.Map<Obecnosc>(addDto));
         }

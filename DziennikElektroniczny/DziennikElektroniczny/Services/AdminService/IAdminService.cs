@@ -9,12 +9,12 @@ namespace DziennikElektroniczny.Services.AdminService
 {
     public interface IAdminService
     {
-        List<Uzytkownik> GetAllUzytkownik();
-        List<Klasa> GetAllKlasa();
-        void AddUzytkownik(AddUzytkownikDTO addDto);
-        void AddKlasa(AddKlasaDTO addDto);
-        void AddUczen(AddUczenDTO addDto);
-        void AddPrzedmiot(AddPrzedmiotDTO addDto);
-        void AddJednostkaLekcyjna(AddJednostkaLekcyjnaDTO addDto);
+        List<Uzytkownik> GetAllUsers();
+        List<Klasa> GetAllClasses();
+        void AddUser(AddUzytkownikDTO addDto);
+        void AddClass(AddKlasaDTO addDto);
+        void AddStudent(AddUczenDTO addDto);
+        void AddSubject(AddPrzedmiotDTO addDto);
+        void AddSubjectUnit(AddJednostkaLekcyjnaDTO addDto);
     }
 }

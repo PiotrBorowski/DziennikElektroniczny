@@ -44,28 +44,28 @@ namespace DziennikElektroniczny.Services.AdminService
             _mapper = mapper;
         }
 
-        public List<Uzytkownik> GetAllUzytkownik()
+        public List<Uzytkownik> GetAllUsers()
         {
             return _uzytkownikRepo.GetAll().ToList();
         }
 
-        public List<Klasa> GetAllKlasa()
+        public List<Klasa> GetAllClasses()
         {
             return _klasaRepo.GetAll().ToList();
         }
 
-        public void AddUzytkownik(AddUzytkownikDTO addDto)
+        public void AddUser(AddUzytkownikDTO addDto)
         {
             _uzytkownikRepo.Add(_mapper.Map<Uzytkownik>(addDto));
         }
 
-        public void AddKlasa(AddKlasaDTO addDto)
+        public void AddClass(AddKlasaDTO addDto)
         {
             _klasaRepo.Add(_mapper.Map<Klasa>(addDto));
             _planLekcjiRepo.Add(new PlanLekcji{IdKlasy = _klasaRepo.GetAll().Last().IdKlasy});
         }
 
-        public void AddUczen(AddUczenDTO addDto)
+        public void AddStudent(AddUczenDTO addDto)
         {
             _uzytkownikRepo.Add(_mapper.Map<Uzytkownik>(addDto));
             var uzytkownik = _uzytkownikRepo.GetAll().Last();
@@ -74,12 +74,12 @@ namespace DziennikElektroniczny.Services.AdminService
             _uczenRepo.Add(uczen);
         }
 
-        public void AddPrzedmiot(AddPrzedmiotDTO addDto)
+        public void AddSubject(AddPrzedmiotDTO addDto)
         {
             _przedmiotRepo.Add(_mapper.Map<Przedmiot>(addDto));
         }
 
-        public void AddJednostkaLekcyjna(AddJednostkaLekcyjnaDTO addDto)
+        public void AddSubjectUnit(AddJednostkaLekcyjnaDTO addDto)
         {
             _jednostkaLekcyjnaRepo.Add(_mapper.Map<JednostkaLekcyjna>(addDto));
         }

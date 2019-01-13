@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DziennikElektroniczny.DTO;
 using DziennikElektroniczny.Services.TeacherService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,30 @@ namespace DziennikElektroniczny.Controllers
             _teacherService = teacherService;
         }
 
+        [HttpPost("dodajOcene")]
+        public IActionResult AddGrade(AddOcenaDTO addDto)
+        {
+            _teacherService.AddGrade(addDto);
+            return Ok();
+        }
 
-
+        [HttpPost("dodajUwage")]
+        public IActionResult AddSchoolNote(AddUwagaDTO addDto)
+        {
+            _teacherService.AddSchoolNote(addDto);
+            return Ok();
+        }
+        [HttpPost("dodajLekcje")]
+        public IActionResult AddLesson(AddLekcjaDTO addDto)
+        {
+            _teacherService.AddLesson(addDto);
+            return Ok();
+        }
+        [HttpPost("dodajObecnosc")]
+        public IActionResult AddSchoolPresence(AddObecnoscDTO addDto)
+        {
+            _teacherService.AddPresenceList(addDto);
+            return Ok();
+        }
     }
 }
