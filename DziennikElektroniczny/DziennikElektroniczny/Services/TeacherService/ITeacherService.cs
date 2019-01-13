@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DziennikElektroniczny.DTO;
+using DziennikElektroniczny.Models;
 
 namespace DziennikElektroniczny.Services.TeacherService
 {
@@ -12,5 +13,6 @@ namespace DziennikElektroniczny.Services.TeacherService
         void AddSchoolNote(AddUwagaDTO addDto);
         void AddLesson(AddLekcjaDTO addDto);
         void AddPresenceList(AddObecnoscDTO addDto);
+        List<Uzytkownik> GetAllStudentsPerLesson(int id);
     }
 }

@@ -16,6 +16,13 @@ namespace DziennikElektroniczny.Services.TeacherService
         private GenericRepository<DziennikElektronicznyContext, Lekcja> _lekcjaRepo;
         private GenericRepository<DziennikElektronicznyContext, Obecnosc> _obecnoscRepo;
         private GenericRepository<DziennikElektronicznyContext, ListaObecnosci> _listaObecnosciRepo;
+        private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
+        private GenericRepository<DziennikElektronicznyContext, Klasa> _klasaRepo;
+        private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
+        private GenericRepository<DziennikElektronicznyContext, Uzytkownik> _uzytkownikRepo;
+        private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
+
+
 
 
         private IMapper _mapper;
@@ -23,16 +30,26 @@ namespace DziennikElektroniczny.Services.TeacherService
         public TeacherService(
             GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
             GenericRepository<DziennikElektronicznyContext, Uwaga> uwagaRepo,
-         GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
-        GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
-         GenericRepository<DziennikElektronicznyContext, ListaObecnosci> listaObecnosciRepo,
-        IMapper mapper)
+            GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
+            GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
+            GenericRepository<DziennikElektronicznyContext, ListaObecnosci> listaObecnosciRepo,
+            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
+            GenericRepository<DziennikElektronicznyContext, Klasa> klasaRepo,
+            GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
+            GenericRepository<DziennikElektronicznyContext, Uzytkownik> uzytkownikRepo,
+            GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
+            IMapper mapper)
         {
             _ocenaRepo = ocenaRepo;
             _uwagaRepo = uwagaRepo;
             _lekcjaRepo = lekcjaRepo;
             _obecnoscRepo = obecnoscRepo;
             _listaObecnosciRepo = listaObecnosciRepo;
+            _planLekcjiRepo = planLekcjiRepo;
+            _klasaRepo = klasaRepo;
+            _jednostkaLekcyjnaRepo = jednostkaLekcyjnaRepo;
+            _uzytkownikRepo = uzytkownikRepo;
+            _uczenRepo = uczenRepo;
             _mapper = mapper;
         }
 
@@ -58,6 +75,28 @@ namespace DziennikElektroniczny.Services.TeacherService
         public void AddPresenceList(AddObecnoscDTO addDto)
         {
             _obecnoscRepo.Add(_mapper.Map<Obecnosc>(addDto));
+        }
+
+        public List<Uzytkownik> GetAllStudentsPerLesson(int id)
+        {
+            var lesson = _lekcjaRepo.FindBy(x => x.IdLekcji == id).Single();
+
+            var subjectUnit = _jednostkaLekcyjnaRepo.FindBy(x => x.IdJednostkiLekcyjnej == lesson.IdJednostkiLekcyjnej)
+                .Single();
+
+            var plan = _planLekcjiRepo.FindBy(x => x.IdPlanuLekcji == subjectUnit.IdPlanuLekcji).Single();
+
+            var schoolClass = _klasaRepo.FindBy(x => x.IdKlasy == plan.IdKlasy).Single();
+
+            var students = _uczenRepo.GetAll().Where(x => x.IdKlasy == schoolClass.IdKlasy);
+
+            //List<Uzytkownik> users = new List<Uzytkownik>();
+            //foreach (var student in students)
+            //{
+            //    users.Add(_uzytkownikRepo.FindBy(x => x.IdUzytkownika == student.IdUzytkownika).Single());
+            //}
+
+            return students.Select(x => x.IdUzytkownikaNavigation).ToList();
         }
     }
 }

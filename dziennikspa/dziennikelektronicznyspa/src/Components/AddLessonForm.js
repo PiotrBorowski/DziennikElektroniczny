@@ -13,9 +13,10 @@ export default class AddLessonForm extends Component{
             topic: "",
             date: "",
             teacherId: 0,
-            subjectUnitId: 0,
+            subjectUnitId: 0         
         };
     }
+
 
     handleUserInputTopic = e => {
         this.setState({ topic: e.target.value });
@@ -57,7 +58,6 @@ export default class AddLessonForm extends Component{
         }
         )
     }
-
 
     render(){
         return (
@@ -107,10 +107,10 @@ export default class AddLessonForm extends Component{
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="inputGroupSelect01">JednostkaLekcyjna</label>
                     </div>
-                    <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputUser}>
+                    <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputSubjectUnitId}>
                         <option selected value=''></option>
-                        <option value="1">Jednostka 1</option>
-                        <option value="4">Jednostka 2</option>
+                        <option value="1">Matematyka pon 11:15</option>
+                        <option value="4">Matematyka pon 16:15</option>
                     </Input>
                 </div>         
             </div>

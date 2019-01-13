@@ -55,6 +55,7 @@ class Header extends Component {
                         <a class="dropdown-item" href="/">Usprawiedliwienia</a>
                         <a class="dropdown-item" href="/AddSchoolNote">Dodaj Uwage</a>
                         <a class="dropdown-item" href="/AddLesson">Dodaj Lekcję</a>
+                        <a class="dropdown-item" href="/AddPresenceList">Sprawdź Obecność</a>
                     </div>
                 </li>
             </React.Fragment>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DziennikElektroniczny.DTO;
+using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Services.TeacherService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,6 +19,12 @@ namespace DziennikElektroniczny.Controllers
         public TeacherController(ITeacherService teacherService)
         {
             _teacherService = teacherService;
+        }
+
+        [HttpGet("obecnoscUczniowie")]
+        public List<Uzytkownik> GetStudents(int lessonId)
+        {
+            return _teacherService.GetAllStudentsPerLesson(lessonId);
         }
 
         [HttpPost("dodajOcene")]
