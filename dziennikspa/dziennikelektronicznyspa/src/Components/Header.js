@@ -51,7 +51,7 @@ class Header extends Component {
                     Nauczyciel
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/">Dodaj Ocene</a>
+                        <a class="dropdown-item" href="/AddGrade">Dodaj Ocene</a>
                         <a class="dropdown-item" href="/">Usprawiedliwienia</a>
                         <a class="dropdown-item" href="/">Uwagi</a>
                         <a class="dropdown-item" href="/">Dodaj Lekcję</a>

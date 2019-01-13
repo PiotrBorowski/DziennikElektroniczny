@@ -23,6 +23,7 @@ import GradeList from './Components/GradeList';
 import Messages from './Components/Messages';
 import SendMessageForm from './Components/SendMessageForm';
 import LessonList from './Components/LessonList';
+import AddGradeForm from './Components/AddGradeForm';
 
 library.add(faStroopwafel)
 library.add(faTrash)
@@ -48,6 +49,7 @@ class App extends Component {
             <Route path="/Messages" component={Messages}/>
             <Route path="/SendMessage" component={SendMessageForm}/>
             <Route path="/LessonList" component={LessonList}/>
+            <Route path="/AddGrade" component={AddGradeForm}/>
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>

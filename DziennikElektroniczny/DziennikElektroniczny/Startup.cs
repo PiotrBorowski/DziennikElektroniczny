@@ -6,6 +6,7 @@ using AutoMapper;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
 using DziennikElektroniczny.Services.AdminService;
+using DziennikElektroniczny.Services.TeacherService;
 using DziennikElektroniczny.Services.UserService;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -50,6 +51,8 @@ namespace DziennikElektroniczny
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
+            services.AddScoped<ITeacherService, TeacherService>();
+
 
         }
 

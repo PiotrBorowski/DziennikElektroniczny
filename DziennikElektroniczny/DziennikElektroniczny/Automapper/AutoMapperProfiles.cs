@@ -20,6 +20,11 @@ namespace DziennikElektroniczny.Automapper
             CreateMap<AddPrzedmiotDTO, Przedmiot>();
             CreateMap<SendWiadomoscDTO, Wiadomosc>();
             CreateMap<JednostkaLekcyjna, JednostkaLekcyjnaViewModel>();
+            CreateMap<AddOcenaDTO, Ocena>();
+            CreateMap<AddObecnoscDTO, Obecnosc>();
+            CreateMap<AddUwagaDTO, Uwaga>();
+            CreateMap<AddLekcjaDTO, Lekcja>();
+
             //CreateMap<, >();
         }
     }
