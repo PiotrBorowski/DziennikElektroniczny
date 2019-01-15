@@ -51,10 +51,7 @@ export default class AddLessonForm extends Component{
             this.props.history.push('/');
         }, (error) => {
             console.log(error);
-
-            if(error.response.status === 400){
-                this.refs.topic.style.borderColor = "red";
-            }
+            this.props.history.push('/');
         }
         )
     }

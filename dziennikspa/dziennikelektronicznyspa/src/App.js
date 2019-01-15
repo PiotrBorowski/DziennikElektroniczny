@@ -27,6 +27,7 @@ import AddGradeForm from './Components/AddGradeForm';
 import AddLessonForm from './Components/AddLessonForm';
 import AddSchoolNoteForm from './Components/AddSchoolNoteForm';
 import AddPresenceList from './Components/AddPresenceList';
+import PresenceList from './Components/PresenceList';
 
 library.add(faStroopwafel)
 library.add(faTrash)
@@ -56,6 +57,8 @@ class App extends Component {
             <Route path="/AddLesson" component={AddLessonForm}/>
             <Route path="/AddSchoolNote" component={AddSchoolNoteForm}/>
             <Route path="/AddPresenceList" component={AddPresenceList}/>
+            <Route path="/PresenceList" component={PresenceList}/>
+
             <Route path="*" component={NotFound} />
           </Switch>
           <Footer/>

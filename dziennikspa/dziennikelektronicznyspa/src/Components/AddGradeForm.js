@@ -50,10 +50,7 @@ export default class AddKlasaForm extends Component{
             this.props.history.push('/');
         }, (error) => {
             console.log(error);
-
-            if(error.response.status === 400){
-                this.refs.value.style.borderColor = "red";
-            }
+            this.props.history.push('/');
         }
         )
     }
@@ -75,6 +72,7 @@ export default class AddKlasaForm extends Component{
                         name="ocena"
                         ref="ocena"
                         min='1'
+                        step='0.5'
                         max='6'
                         value={this.state.value}
                         onChange={this.handleUserInputValue}

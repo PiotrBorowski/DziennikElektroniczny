@@ -16,6 +16,50 @@ export default class Presence extends Component{
         };
     }
 
+
+    sendRequest = () => {
+        axios.post(BASE_URL + "/teacher/dodajObecnosc", {
+            czyObecny: true,
+            idUcznia: this.state.studentId,
+            IdListy: this.props.lessonId
+        }).then((response) => { 
+            console.log(response);
+            this.props.history.push('/');
+        }, (error) => {
+            console.log(error);
+
+        }
+        )
+    }
+
+    present = () => {
+        axios.post(BASE_URL + "/teacher/dodajObecnosc", {
+            czyObecny: true,
+            idUcznia: this.state.studentId,
+            IdListy: this.props.lessonId
+        }).then((response) => { 
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+
+        }
+        )
+    }
+
+    absent = () => {
+        axios.post(BASE_URL + "/teacher/dodajObecnosc", {
+            czyObecny: false,
+            idUcznia: this.state.studentId,
+            IdListy: this.props.lessonId
+        }).then((response) => { 
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+
+        }
+        )
+    }
+
     render(){
 
         return (
@@ -28,10 +72,10 @@ export default class Presence extends Component{
 
                 <div className="row">
                 <div className="col-sm-1">
-                    <button className="btn btn-primary">OBECNY</button>                   
+                    <button onClick={this.present} className="btn btn-primary">OBECNY</button>                   
                 </div>
                 <div className="col-sm-1 offset-1">
-                    <button className="btn btn-danger">NIEOBECNY</button>                   
+                    <button onClick={this.absent} className="btn btn-danger">NIEOBECNY</button>                   
                 </div>
                 </div>
 

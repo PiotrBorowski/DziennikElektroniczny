@@ -9,9 +9,6 @@ export default class Home extends Component {
           <div className="container-fluid">
             <div className="hero-text">
               <h1>Dziennik Elektroniczny</h1>
-              <p>
-               Dziennik elektroniczny do zarzadzania biednymi uczniami
-              </p>
             </div>
           </div>
         </div>

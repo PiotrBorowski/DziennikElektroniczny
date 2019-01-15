@@ -53,7 +53,7 @@ namespace DziennikElektroniczny.Controllers
         }
 
         [HttpGet("Obecnosci")]
-        public List<Obecnosc> GetPresenceList(int id)
+        public List<ObecnoscViewModel> GetPresenceList(int id)
         {
             return _userService.GetSchoolPresenceList(id);
         }

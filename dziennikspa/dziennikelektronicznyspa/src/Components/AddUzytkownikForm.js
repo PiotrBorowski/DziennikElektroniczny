@@ -50,10 +50,8 @@ export default class AddUzytkownikForm extends Component{
             this.props.history.push('/');
         }, (error) => {
             console.log(error);
+            this.props.history.push('/');
 
-            if(error.response.status === 400){
-                this.refs.name.style.borderColor = "red";
-            }
         }
         )
     }

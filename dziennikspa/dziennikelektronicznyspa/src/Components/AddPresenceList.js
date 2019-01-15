@@ -55,17 +55,14 @@ export default class AddPresenceList extends Component{
             this.props.history.push('/');
         }, (error) => {
             console.log(error);
-
-            if(error.response.status === 400){
-                this.refs.topic.style.borderColor = "red";
-            }
+            this.props.history.push('/');
         }
         )
     }
 
     renderStudents = () => {
         return this.state.students.map(x => 
-            <Presence name={x.imie} surname={x.nazwisko} studentId={x.idUzytkownika} />
+            <Presence name={x.imie} surname={x.nazwisko} studentId={x.idUzytkownika} lessonId = {this.state.lessonId} />
         );
     }
 
@@ -82,7 +79,6 @@ export default class AddPresenceList extends Component{
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputLesson}>
                         <option selected value=''></option>
                         <option value="1">Lekcja 1</option>
-                        <option value="4">Lekcja 2</option>
                     </Input>
                 </div>         
             </div>

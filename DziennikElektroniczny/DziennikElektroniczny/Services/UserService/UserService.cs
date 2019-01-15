@@ -15,7 +15,9 @@ namespace DziennikElektroniczny.Services.UserService
     {
         private GenericRepository<DziennikElektronicznyContext, Wiadomosc> _wiadomoscRepo;
         private GenericRepository<DziennikElektronicznyContext, Uwaga> _uwagaRepo;
+        private GenericRepository<DziennikElektronicznyContext, Lekcja> _lekcjaRepo;
         private GenericRepository<DziennikElektronicznyContext, Obecnosc> _obecnoscRepo;
+        private GenericRepository<DziennikElektronicznyContext, ListaObecnosci> _listaObecnosciRepo;
         private GenericRepository<DziennikElektronicznyContext, Ocena> _ocenaRepo;
         private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
         private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
@@ -29,13 +31,15 @@ namespace DziennikElektroniczny.Services.UserService
             (
             GenericRepository<DziennikElektronicznyContext,Wiadomosc> wiadomoscRepo,
             GenericRepository<DziennikElektronicznyContext, Uwaga> uwagaRepo,
-            GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
             GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
             GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
             GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
             GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
             GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo,
-            IMapper mapper
+            GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
+            GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
+            GenericRepository<DziennikElektronicznyContext, ListaObecnosci> listaObecnosciRepo,
+        IMapper mapper
 
             )
         {
@@ -47,6 +51,8 @@ namespace DziennikElektroniczny.Services.UserService
             _uczenRepo = uczenRepo;
             _planLekcjiRepo = planLekcjiRepo;
             _przedmiotRepo = przedmiotRepo;
+            _lekcjaRepo = lekcjaRepo;
+            _listaObecnosciRepo = listaObecnosciRepo;
             _mapper = mapper;
         }
 
@@ -65,9 +71,31 @@ namespace DziennikElektroniczny.Services.UserService
             return _uwagaRepo.GetAll().Where(x => x.IdUcznia == userId).ToList();
         }
 
-        public List<Obecnosc> GetSchoolPresenceList(int userId)
+        public List<ObecnoscViewModel> GetSchoolPresenceList(int userId)
         {
-            return _obecnoscRepo.GetAll().Where(x => x.IdUcznia == userId).ToList();
+            var presences = _obecnoscRepo.GetAll().Where(x => x.IdUcznia == userId).ToList();
+
+            List<ObecnoscViewModel> viewModels = new List<ObecnoscViewModel>();
+            foreach (var item in presences)
+            {
+                var presenceList = _listaObecnosciRepo.FindBy(l => l.IdListy == item.IdListy).First();
+
+                var lesson = _lekcjaRepo.FindBy(lekcja =>                   
+                   presenceList.IdLekcji == lekcja.IdLekcji).First();
+              
+
+                var hour = _jednostkaLekcyjnaRepo.FindBy(j => j.IdJednostkiLekcyjnej == lesson.IdJednostkiLekcyjnej)
+                    .First().Godzina;
+
+                viewModels.Add(new ObecnoscViewModel
+                {
+                    CzyObecny = item.CzyObecny,
+                    Data = lesson.Data,
+                    Godzina = hour
+                });
+            }
+
+            return viewModels;
         }
 
         public List<OcenaViewModel> GetGradeList(int userId)

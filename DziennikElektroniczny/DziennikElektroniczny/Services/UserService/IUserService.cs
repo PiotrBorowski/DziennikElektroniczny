@@ -13,7 +13,7 @@ namespace DziennikElektroniczny.Services.UserService
         List<Wiadomosc> GetMessagesSend(int userId);
         List<Wiadomosc> GetMessagesReceived(int userId);
         List<Uwaga> GetSchoolNotes(int userId);
-        List<Obecnosc> GetSchoolPresenceList(int userId);
+        List<ObecnoscViewModel> GetSchoolPresenceList(int userId);
         List<OcenaViewModel> GetGradeList(int userId);
         List<JednostkaLekcyjnaViewModel> GetJednostkaLekcyjnaList(int userId);
         void SendMessage(SendWiadomoscDTO addDto);

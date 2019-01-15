@@ -44,10 +44,7 @@ export default class AddKlasaForm extends Component{
             this.props.history.push('/');
         }, (error) => {
             console.log(error);
-
-            if(error.response.status === 400){
-                this.refs.name.style.borderColor = "red";
-            }
+            this.props.history.push('/');
         }
         )
     }
