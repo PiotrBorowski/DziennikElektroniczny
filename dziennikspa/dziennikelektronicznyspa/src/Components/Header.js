@@ -1,27 +1,15 @@
 import React, { Component } from "react";
 import { NavLink, withRouter } from "react-router-dom";
 import "../Styles/Index.css";
-import TokenHelper from '../helpers/tokenHelper'
 import {connect} from 'react-redux'
-import { CheckUserToken } from "../Actions/userActions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-class Header extends Component {
+export default class Header extends Component {
     constructor(props){
         super(props);
         console.log(this.props)
-        window.onload = () => {
-            this.props.dispatch(CheckUserToken())          
-        }
     }
 
-    handleLogout = () => {
-        TokenHelper.setTokenInHeader(false);
-        TokenHelper.setTokenInLocalStorage(false);
-        localStorage.removeItem('username');
-        this.props.history.push('/');
-        this.props.dispatch(CheckUserToken());
-    };
 
     render(){
         
@@ -128,11 +116,3 @@ class Header extends Component {
         )
     }
 }
-
-function mapStateToProps(state){
-    return{
-        user: state.user
-    };
-}
-
-export default withRouter(connect(mapStateToProps)(Header));

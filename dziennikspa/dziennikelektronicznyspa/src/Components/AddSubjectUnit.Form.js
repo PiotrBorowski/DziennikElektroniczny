@@ -66,21 +66,20 @@ export default class AddSubjectUnitForm extends Component{
         <form onSubmit={this.handleSubmit}>
             <h2 className="title">Dodaj nową Jednostkę lekcyjną</h2>
             <div className="form-group col-md-10 offset-md-1">
+                 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">Dzien tygodnia</span>
+                        <label class="input-group-text" for="inputGroupSelect01">Dzien tygodnia</label>
                     </div>
-                    <input
-                        className="form-control"
-                        type="text"
-                        name="weekday"
-                        ref="weekday"
-                        value={this.state.weekday}
-                        onChange={this.handleUserInputWeekDay}
-                        required
-                        />
-                </div>
-
+                    <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputWeekDay}>
+                        <option value=''></option>
+                        <option value="poniedziałek">Poniedziałek</option>
+                        <option  value="wtorek">Wtorek</option>
+                        <option value="środa">Środa</option>
+                        <option  value="czwartek">Czwartek</option>
+                        <option value="piątek">Piątek</option>
+                    </Input>
+                </div> 
 
             <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -120,8 +119,8 @@ export default class AddSubjectUnitForm extends Component{
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputSubjectId}>
                         <option value=''></option>
-                        <option value="1">Przedmiot 1</option>
-                        <option  value="2">Przedmiot 2</option>
+                        <option value="1">Matematyka</option>
+                        <option  value="2">Historia</option>
                     </Input>
                 </div>       
 

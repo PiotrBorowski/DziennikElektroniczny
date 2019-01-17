@@ -85,8 +85,8 @@ export default class AddKlasaForm extends Component{
                     </div>
                     <Input type="select" class="custom-select" id="inputGroupSelect01" onChange={this.handleUserInputSubject}>
                         <option selected value=''></option>
-                        <option value="1">Przedmiot 1</option>
-                        <option value="2">Przedmiot 2</option>
+                        <option value="1">Matematyka</option>
+                        <option value="2">Historia</option>
                     </Input>
                 </div>
                 <div class="input-group mb-3">

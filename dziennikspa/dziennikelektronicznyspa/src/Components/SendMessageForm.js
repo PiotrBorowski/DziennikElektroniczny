@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {BASE_URL} from "../constants"
 import "../Styles/Form.css"
 import axios from "axios"
-import {Input} from 'reactstrap'
 
 export default class AddSubjectForm extends Component{
     constructor(props){

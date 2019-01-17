@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import "../Styles/Page.css"
-import axios from "axios"
-import {BASE_URL} from "../constants"
 import {ButtonGroup, UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 export default class User extends Component{
     constructor(props){
