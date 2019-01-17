@@ -8,6 +8,7 @@ import "../Styles/colors.css"
 import ReactTable from "react-table"
 import 'react-table/react-table.css'
 import Moment from 'moment';
+import 'moment/locale/pl';
 
 export default class UserList extends Component {
     constructor(props){
@@ -40,7 +41,7 @@ export default class UserList extends Component {
             {id:"data",Header: 'Data',  accessor: d => {
         Moment.locale('pl');
         var date = Moment(d.data);
-        return date.format('d MMM');
+        return date.format('d (dd) MMMM');
       }
     },
             {Header:'Godzina', accessor: 'godzina'},

@@ -13,8 +13,8 @@ namespace DziennikElektroniczny.Automapper
     {
         public AutoMapperProfiles()
         {
-            CreateMap<AddUzytkownikDTO,Uzytkownik>();
-            CreateMap<AddKlasaDTO,Klasa >();
+            CreateMap<AddUzytkownikDTO, Uzytkownik>();
+            CreateMap<AddKlasaDTO, Klasa>();
             CreateMap<AddUczenDTO, Uczen>();
             CreateMap<AddUczenDTO, Uzytkownik>();
             CreateMap<AddPrzedmiotDTO, Przedmiot>();

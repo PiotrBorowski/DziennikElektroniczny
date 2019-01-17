@@ -2,9 +2,8 @@ import React, { Component } from "react";
 import "../Styles/Page.css"
 import axios from "axios"
 import {BASE_URL} from "../constants"
-import {ButtonGroup, UncontrolledCollapse, Button, CardBody, Card } from 'reactstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Moment from 'moment';
+import 'moment/locale/pl';
 
 export default class Excuse extends Component{
     constructor(props){
@@ -52,13 +51,20 @@ export default class Excuse extends Component{
         }          
     }
 
+    Convertdate(date){
+            var newdate = Moment(date);
+            newdate.locale('pl');
+            return newdate.format('LL');
+    }
+
+
     render(){
 
         return (
             <div className="page" >
                
                 <h5 className="text-center text-truncate">
-                    <span>{this.props.date} </span>
+                    <span>{this.Convertdate(this.props.date)} </span>
                     {this.Excused(this.props.accepted)}
                 </h5>
                 <p>
