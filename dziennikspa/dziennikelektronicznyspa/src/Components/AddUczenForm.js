@@ -129,6 +129,7 @@ export default class AddUczenForm extends Component{
                         ref="pesel"
                         value={this.state.pesel}
                         onChange={this.handleUserInputPesel}
+                        pattern=".{11,11}"
                         required
                         />
                 </div>      

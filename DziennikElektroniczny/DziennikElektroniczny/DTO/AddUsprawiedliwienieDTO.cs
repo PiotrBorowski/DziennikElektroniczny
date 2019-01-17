@@ -10,5 +10,6 @@ namespace DziennikElektroniczny.DTO
         public string Tresc { get; set; }
         public DateTime Data { get; set; }
         public int IdWychowawcy { get; set; }
+        public int IdRodzica { get; set; }
     }
 }

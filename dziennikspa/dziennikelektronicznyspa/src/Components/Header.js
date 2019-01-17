@@ -34,7 +34,7 @@ class Header extends Component {
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/Messages">Wiadomości</a>
-                        <a class="dropdown-item" href="/">Uwagi</a>
+                        <a class="dropdown-item" href="/SchoolNoteList">Uwagi</a>
                         <a class="dropdown-item" href="/PresenceList">Obecności</a>
                         <a class="dropdown-item" href="/Grades">Oceny</a>
                         <a class="dropdown-item" href="/LessonList">Plan Lekcji</a>
@@ -52,7 +52,7 @@ class Header extends Component {
                 </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <a class="dropdown-item" href="/AddGrade">Dodaj Ocene</a>
-                        <a class="dropdown-item" href="/">Usprawiedliwienia</a>
+                        <a class="dropdown-item" href="/ExcuseList">Usprawiedliwienia</a>
                         <a class="dropdown-item" href="/AddSchoolNote">Dodaj Uwage</a>
                         <a class="dropdown-item" href="/AddLesson">Dodaj Lekcję</a>
                         <a class="dropdown-item" href="/AddPresenceList">Sprawdź Obecność</a>
@@ -68,7 +68,7 @@ class Header extends Component {
                     Rodzic
                 </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="/">Usprawieliwienie</a>
+                        <a class="dropdown-item" href="/AddExcuseForm">Usprawieliwienie</a>
                         <a class="dropdown-item" href="/">Oceny dzieci</a>
                     </div>
               </li>

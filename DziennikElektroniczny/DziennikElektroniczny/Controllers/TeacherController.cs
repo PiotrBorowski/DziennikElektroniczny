@@ -27,6 +27,12 @@ namespace DziennikElektroniczny.Controllers
             return _teacherService.GetAllStudentsPerLesson(lessonId);
         }
 
+        [HttpGet("usprawiedliwienia")]
+        public List<Usprawiedliwienie> GetExcuses(int parentId)
+        {
+            return _teacherService.GetAllExcusesPerParent(parentId);
+        }
+
         [HttpPost("dodajOcene")]
         public IActionResult AddGrade(AddOcenaDTO addDto)
         {
@@ -53,6 +59,20 @@ namespace DziennikElektroniczny.Controllers
         public IActionResult AddSchoolPresence(AddObecnoscDTO addDto)
         {
             _teacherService.AddPresenceList(addDto);
+            return Ok();
+        }
+
+        [HttpPost("akceptujUsprawiedliwienie")]
+        public IActionResult AcceptExcuse(int id)
+        {
+            _teacherService.AcceptExcuse(id);
+            return Ok();
+        }
+
+        [HttpPost("odrzucUsprawiedliwienie")]
+        public IActionResult DiscardExcuse(int id)
+        {
+            _teacherService.DiscardExcuse(id);
             return Ok();
         }
     }

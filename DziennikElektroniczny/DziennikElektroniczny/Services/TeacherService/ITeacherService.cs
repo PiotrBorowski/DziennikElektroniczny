@@ -14,5 +14,8 @@ namespace DziennikElektroniczny.Services.TeacherService
         void AddLesson(AddLekcjaDTO addDto);
         void AddPresenceList(AddObecnoscDTO addDto);
         List<Uzytkownik> GetAllStudentsPerLesson(int id);
+        List<Usprawiedliwienie> GetAllExcusesPerParent(int id);
+        void AcceptExcuse(int id);
+        void DiscardExcuse(int id);
     }
 }

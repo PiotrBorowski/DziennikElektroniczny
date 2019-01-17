@@ -21,14 +21,15 @@ namespace DziennikElektroniczny.Services.TeacherService
         private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
         private GenericRepository<DziennikElektronicznyContext, Uzytkownik> _uzytkownikRepo;
         private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
+        private GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie> _usprawiedliwienieRepo;
+
 
 
 
 
         private IMapper _mapper;
 
-        public TeacherService(
-            GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
+        public TeacherService(GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
             GenericRepository<DziennikElektronicznyContext, Uwaga> uwagaRepo,
             GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
             GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
@@ -38,7 +39,7 @@ namespace DziennikElektroniczny.Services.TeacherService
             GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
             GenericRepository<DziennikElektronicznyContext, Uzytkownik> uzytkownikRepo,
             GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
-            IMapper mapper)
+            IMapper mapper, GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie> usprawiedliwienieRepo)
         {
             _ocenaRepo = ocenaRepo;
             _uwagaRepo = uwagaRepo;
@@ -50,6 +51,7 @@ namespace DziennikElektroniczny.Services.TeacherService
             _jednostkaLekcyjnaRepo = jednostkaLekcyjnaRepo;
             _uzytkownikRepo = uzytkownikRepo;
             _uczenRepo = uczenRepo;
+            _usprawiedliwienieRepo = usprawiedliwienieRepo;
             _mapper = mapper;
         }
 
@@ -88,7 +90,7 @@ namespace DziennikElektroniczny.Services.TeacherService
 
             var schoolClass = _klasaRepo.FindBy(x => x.IdKlasy == plan.IdKlasy).Single();
 
-            var students = _uczenRepo.GetAll().Where(x => x.IdKlasy == schoolClass.IdKlasy);
+            var students = _uczenRepo.FindBy(x => x.IdKlasy == schoolClass.IdKlasy);
 
             //List<Uzytkownik> users = new List<Uzytkownik>();
             //foreach (var student in students)
@@ -97,6 +99,25 @@ namespace DziennikElektroniczny.Services.TeacherService
             //}
 
             return students.Select(x => x.IdUzytkownikaNavigation).ToList();
+        }
+
+        public List<Usprawiedliwienie> GetAllExcusesPerParent(int id)
+        {
+            return _usprawiedliwienieRepo.FindBy(x => x.IdRodzica == id).ToList();
+        }
+
+        public void AcceptExcuse(int id)
+        {
+            var excuse = _usprawiedliwienieRepo.FindBy(x => x.IdUsprawiedliwienie == id).FirstOrDefault();
+            excuse.CzyZatwierdzone = true;
+            _usprawiedliwienieRepo.Edit(excuse);
+        }
+
+        public void DiscardExcuse(int id)
+        {
+            var excuse = _usprawiedliwienieRepo.FindBy(x => x.IdUsprawiedliwienie == id).FirstOrDefault();
+            excuse.CzyZatwierdzone = false;
+            _usprawiedliwienieRepo.Edit(excuse);
         }
     }
 }

@@ -3,35 +3,36 @@ import axios from "axios"
 import {BASE_URL} from "../constants"
 import Class from "./Class"
 import "../Styles/Page.css"
+import Excuse from "./Excuse";
 
 export default class UserList extends Component {
     constructor(props){
         super(props);
         this.state={
-            classes: []
+            excuses: []
         };
     }
 
     componentDidMount(){
 
-            this.getUsers(BASE_URL + "/admin/Klasy");    
-            console.log(this.state.classes);
+            this.getUsers(BASE_URL + "/teacher/Usprawiedliwienia?parentId=3");    
+            console.log(this.state.excuses);
     }   
 
     getUsers(url){
         return axios.get(url).then(response => {
             console.log(response);
             this.setState({
-                classes: response.data
+                excuses: response.data
             })
         }).catch((error) => {
             console.log(error);
         });
     }
 
-    renderClasses = () => {
-        return this.state.classes.map(x => 
-            <Class classId={x.idKlasy} name={x.nazwa} year={x.rokSzkolny} teacherId={x.idWychowawcy}  />
+    renderExcuses = () => {
+        return this.state.excuses.map(x => 
+            <Excuse  id={x.idUsprawiedliwienie} text={x.tresc} date={x.data} accepted={x.czyZatwierdzone}  />
         );
     }
 
@@ -40,9 +41,9 @@ export default class UserList extends Component {
         return (
             <div className="container">
                 <div className="pages-group">
-                    <h2 className="title">Wszystkie klasy</h2>
+                    <h2 className="title">Usprawiedliwienia</h2>
                     <div>
-                        {this.renderClasses()}
+                        {this.renderExcuses()}
                     </div>
                 </div>
             </div>        

@@ -6,6 +6,7 @@ using AutoMapper;
 using DziennikElektroniczny.Models;
 using DziennikElektroniczny.Repositories;
 using DziennikElektroniczny.Services.AdminService;
+using DziennikElektroniczny.Services.ParentService;
 using DziennikElektroniczny.Services.TeacherService;
 using DziennikElektroniczny.Services.UserService;
 using Microsoft.AspNetCore.Builder;
@@ -49,11 +50,15 @@ namespace DziennikElektroniczny
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Obecnosc>, ObecnoscRepo>();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, Lekcja>, LekcjaRepo>();
             services.AddScoped<GenericRepository<DziennikElektronicznyContext, ListaObecnosci>, ListaObecnosciRepo>();
+            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie>, UsprawiedliwienieRepo>();
+
 
 
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IAdminService, AdminService>();
             services.AddScoped<ITeacherService, TeacherService>();
+            services.AddScoped<IParentService, ParentService>();
+
 
 
         }

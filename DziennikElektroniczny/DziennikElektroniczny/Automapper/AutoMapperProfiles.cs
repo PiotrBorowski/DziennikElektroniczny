@@ -24,6 +24,7 @@ namespace DziennikElektroniczny.Automapper
             CreateMap<AddObecnoscDTO, Obecnosc>();
             CreateMap<AddUwagaDTO, Uwaga>();
             CreateMap<AddLekcjaDTO, Lekcja>();
+            CreateMap<AddUsprawiedliwienieDTO, Usprawiedliwienie>();
 
             //CreateMap<, >();
         }
