@@ -37,37 +37,75 @@ namespace DziennikElektroniczny.Controllers
 
         [HttpPost("dodajUzytkownika")]
         public IActionResult AddUzytkownik(AddUzytkownikDTO addDto)
-        {          
-            _adminService.AddUser(addDto);
-            return Ok();
+        {
+            try
+            {
+                _adminService.AddUser(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpPost("dodajKlase")]
         public IActionResult AddKlasa(AddKlasaDTO addDto)
         {
-            _adminService.AddClass(addDto);
-            return Ok();
+            try
+            {
+                _adminService.AddClass(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost("dodajUcznia")]
         public IActionResult AddUczen(AddUczenDTO addDto)
         {
-            _adminService.AddStudent(addDto);
-            return Ok();
+            try
+            {
+                _adminService.AddStudent(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
 
         [HttpPost("dodajPrzedmiot")]
         public IActionResult AddSubject(AddPrzedmiotDTO addDto)
         {
-            _adminService.AddSubject(addDto);
-            return Ok();
+            try
+            {
+                _adminService.AddSubject(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpPost("dodajJednostkeLekcyjna")]
         public IActionResult AddSubject(AddJednostkaLekcyjnaDTO addDto)
         {
-            _adminService.AddSubjectUnit(addDto);
-            return Ok();
+            try
+            {
+                _adminService.AddSubjectUnit(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+
+            }
         }
     }
 }

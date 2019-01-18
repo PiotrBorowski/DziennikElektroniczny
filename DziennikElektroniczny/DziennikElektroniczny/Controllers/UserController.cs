@@ -61,9 +61,17 @@ namespace DziennikElektroniczny.Controllers
         [HttpPost("dodajWiadomosc")]
         public IActionResult SendMessage(SendWiadomoscDTO addDto)
         {
-            addDto.IdNadawcy = 2;
-            _userService.SendMessage(addDto);
-            return Ok();
+            try
+            {
+                addDto.IdNadawcy = 2;
+                _userService.SendMessage(addDto);
+                return Ok();
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+
         }
     }
 }

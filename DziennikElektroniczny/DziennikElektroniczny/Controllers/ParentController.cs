@@ -23,9 +23,17 @@ namespace DziennikElektroniczny.Controllers
         [HttpPost("dodajUsprawiedliwienie")]
         public IActionResult AddExcuse(AddUsprawiedliwienieDTO addDto)
         {
-            addDto.IdRodzica = 3;
-            _parentService.AddExcuse(addDto);
-            return Ok();
+            try
+            {
+                addDto.IdRodzica = 3;
+                _parentService.AddExcuse(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+           
         }
     }
 }

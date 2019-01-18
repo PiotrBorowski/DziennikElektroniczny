@@ -36,44 +36,91 @@ namespace DziennikElektroniczny.Controllers
         [HttpPost("dodajOcene")]
         public IActionResult AddGrade(AddOcenaDTO addDto)
         {
-            _teacherService.AddGrade(addDto);
-            return Ok();
+            try
+            {
+                _teacherService.AddGrade(addDto);
+                return Ok();
+            }
+            catch 
+            {
+                return BadRequest();
+            }
+           
         }
 
         [HttpPost("dodajUwage")]
         public IActionResult AddSchoolNote(AddUwagaDTO addDto)
         {
-            addDto.IdNauczyciela = 6;
-            _teacherService.AddSchoolNote(addDto);
-            return Ok();
+            try
+            {
+                addDto.IdNauczyciela = 6;
+                _teacherService.AddSchoolNote(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+            
         }
 
         [HttpPost("dodajLekcje")]
         public IActionResult AddLesson(AddLekcjaDTO addDto)
         {
-            _teacherService.AddLesson(addDto);
-            return Ok();
+            try
+            {
+                _teacherService.AddLesson(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpPost("dodajObecnosc")]
         public IActionResult AddSchoolPresence(AddObecnoscDTO addDto)
         {
-            _teacherService.AddPresenceList(addDto);
-            return Ok();
+            try
+            {
+                _teacherService.AddPresenceList(addDto);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpPost("akceptujUsprawiedliwienie")]
         public IActionResult AcceptExcuse(int id)
         {
-            _teacherService.AcceptExcuse(id);
-            return Ok();
+            try
+            {
+                _teacherService.AcceptExcuse(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
+
         }
 
         [HttpPost("odrzucUsprawiedliwienie")]
         public IActionResult DiscardExcuse(int id)
         {
-            _teacherService.DiscardExcuse(id);
-            return Ok();
+            try
+            {
+                _teacherService.DiscardExcuse(id);
+                return Ok();
+            }
+            catch
+            {
+                return BadRequest();
+            }
         }
     }
 }
