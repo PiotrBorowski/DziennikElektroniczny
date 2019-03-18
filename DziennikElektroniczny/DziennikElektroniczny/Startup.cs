@@ -38,19 +38,19 @@ namespace DziennikElektroniczny
                 options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddCors();
             services.AddAutoMapper();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uzytkownik>, UzytkownikRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Klasa>, KlasaRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uczen>, UczenRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, PlanLekcji>, PlanLekcjiRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna>, JednostkaLekcyjnaRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Przedmiot>, PrzedmiotRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Ocena>, OcenaRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Wiadomosc>, WiadomoscRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Uwaga >, UwagaRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Obecnosc>, ObecnoscRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Lekcja>, LekcjaRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, ListaObecnosci>, ListaObecnosciRepo>();
-            services.AddScoped<GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie>, UsprawiedliwienieRepo>();
+            services.AddScoped<IGenericRepository<Uzytkownik>, GenericRepository<DziennikElektronicznyContext, Uzytkownik>>();
+            services.AddScoped<IGenericRepository<Klasa>, GenericRepository<DziennikElektronicznyContext, Klasa>>();
+            services.AddScoped<IGenericRepository<Uczen>, GenericRepository<DziennikElektronicznyContext, Uczen>>();
+            services.AddScoped<IGenericRepository<PlanLekcji>, GenericRepository<DziennikElektronicznyContext, PlanLekcji>>();
+            services.AddScoped<IGenericRepository<JednostkaLekcyjna>, GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna>>();
+            services.AddScoped<IGenericRepository<Przedmiot>, GenericRepository<DziennikElektronicznyContext, Przedmiot>>();
+            services.AddScoped<IGenericRepository<Ocena>, GenericRepository<DziennikElektronicznyContext, Ocena>>();
+            services.AddScoped<IGenericRepository<Wiadomosc>, GenericRepository<DziennikElektronicznyContext, Wiadomosc>>();
+            services.AddScoped<IGenericRepository<Uwaga >, GenericRepository<DziennikElektronicznyContext, Uwaga>>();
+            services.AddScoped<IGenericRepository<Obecnosc>, GenericRepository<DziennikElektronicznyContext, Obecnosc>>();
+            services.AddScoped<IGenericRepository<Lekcja>, GenericRepository<DziennikElektronicznyContext, Lekcja>>();
+            services.AddScoped<IGenericRepository<ListaObecnosci>, GenericRepository<DziennikElektronicznyContext, ListaObecnosci>>();
+            services.AddScoped<IGenericRepository<Usprawiedliwienie>, GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie>>();
 
 
 

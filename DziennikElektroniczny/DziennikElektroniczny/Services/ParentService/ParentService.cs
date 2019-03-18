@@ -11,10 +11,10 @@ namespace DziennikElektroniczny.Services.ParentService
 {
     public class ParentService : IParentService
     {
-        private GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie> _usprawiedliwienieRepo;
+        private IGenericRepository<Usprawiedliwienie> _usprawiedliwienieRepo;
         private IMapper _mapper;
 
-        public ParentService(GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie> usprawiedliwienieRepo, IMapper mapper)
+        public ParentService(IGenericRepository<Usprawiedliwienie> usprawiedliwienieRepo, IMapper mapper)
         {
             _usprawiedliwienieRepo = usprawiedliwienieRepo;
             _mapper = mapper;

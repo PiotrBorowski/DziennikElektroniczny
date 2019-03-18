@@ -11,17 +11,17 @@ namespace DziennikElektroniczny.Services.TeacherService
 {
     public class TeacherService : ITeacherService
     {
-        private GenericRepository<DziennikElektronicznyContext, Ocena> _ocenaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Uwaga> _uwagaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Lekcja> _lekcjaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Obecnosc> _obecnoscRepo;
-        private GenericRepository<DziennikElektronicznyContext, ListaObecnosci> _listaObecnosciRepo;
-        private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
-        private GenericRepository<DziennikElektronicznyContext, Klasa> _klasaRepo;
-        private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Uzytkownik> _uzytkownikRepo;
-        private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
-        private GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie> _usprawiedliwienieRepo;
+        private IGenericRepository< Ocena> _ocenaRepo;
+        private IGenericRepository< Uwaga> _uwagaRepo;
+        private IGenericRepository< Lekcja> _lekcjaRepo;
+        private IGenericRepository< Obecnosc> _obecnoscRepo;
+        private IGenericRepository< ListaObecnosci> _listaObecnosciRepo;
+        private IGenericRepository< PlanLekcji> _planLekcjiRepo;
+        private IGenericRepository< Klasa> _klasaRepo;
+        private IGenericRepository< JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
+        private IGenericRepository< Uzytkownik> _uzytkownikRepo;
+        private IGenericRepository< Uczen> _uczenRepo;
+        private IGenericRepository< Usprawiedliwienie> _usprawiedliwienieRepo;
 
 
 
@@ -29,17 +29,17 @@ namespace DziennikElektroniczny.Services.TeacherService
 
         private IMapper _mapper;
 
-        public TeacherService(GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
-            GenericRepository<DziennikElektronicznyContext, Uwaga> uwagaRepo,
-            GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
-            GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
-            GenericRepository<DziennikElektronicznyContext, ListaObecnosci> listaObecnosciRepo,
-            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
-            GenericRepository<DziennikElektronicznyContext, Klasa> klasaRepo,
-            GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
-            GenericRepository<DziennikElektronicznyContext, Uzytkownik> uzytkownikRepo,
-            GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
-            IMapper mapper, GenericRepository<DziennikElektronicznyContext, Usprawiedliwienie> usprawiedliwienieRepo)
+        public TeacherService(IGenericRepository< Ocena> ocenaRepo,
+            IGenericRepository< Uwaga> uwagaRepo,
+            IGenericRepository< Lekcja> lekcjaRepo,
+            IGenericRepository< Obecnosc> obecnoscRepo,
+            IGenericRepository< ListaObecnosci> listaObecnosciRepo,
+            IGenericRepository< PlanLekcji> planLekcjiRepo,
+            IGenericRepository< Klasa> klasaRepo,
+            IGenericRepository< JednostkaLekcyjna> jednostkaLekcyjnaRepo,
+            IGenericRepository< Uzytkownik> uzytkownikRepo,
+            IGenericRepository< Uczen> uczenRepo,
+            IMapper mapper, IGenericRepository< Usprawiedliwienie> usprawiedliwienieRepo)
         {
             _ocenaRepo = ocenaRepo;
             _uwagaRepo = uwagaRepo;

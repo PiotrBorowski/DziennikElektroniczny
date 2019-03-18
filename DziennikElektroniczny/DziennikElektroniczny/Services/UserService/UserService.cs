@@ -13,32 +13,32 @@ namespace DziennikElektroniczny.Services.UserService
 {
     public class UserService : IUserService
     {
-        private GenericRepository<DziennikElektronicznyContext, Wiadomosc> _wiadomoscRepo;
-        private GenericRepository<DziennikElektronicznyContext, Uwaga> _uwagaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Lekcja> _lekcjaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Obecnosc> _obecnoscRepo;
-        private GenericRepository<DziennikElektronicznyContext, ListaObecnosci> _listaObecnosciRepo;
-        private GenericRepository<DziennikElektronicznyContext, Ocena> _ocenaRepo;
-        private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
-        private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
-        private GenericRepository<DziennikElektronicznyContext, Przedmiot> _przedmiotRepo;
+        private IGenericRepository<Wiadomosc> _wiadomoscRepo;
+        private IGenericRepository<Uwaga> _uwagaRepo;
+        private IGenericRepository<Lekcja> _lekcjaRepo;
+        private IGenericRepository<Obecnosc> _obecnoscRepo;
+        private IGenericRepository<ListaObecnosci> _listaObecnosciRepo;
+        private IGenericRepository<Ocena> _ocenaRepo;
+        private IGenericRepository<JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
+        private IGenericRepository<Uczen> _uczenRepo;
+        private IGenericRepository<PlanLekcji> _planLekcjiRepo;
+        private IGenericRepository<Przedmiot> _przedmiotRepo;
         private IMapper _mapper;
 
 
 
         public UserService
             (
-            GenericRepository<DziennikElektronicznyContext,Wiadomosc> wiadomoscRepo,
-            GenericRepository<DziennikElektronicznyContext, Uwaga> uwagaRepo,
-            GenericRepository<DziennikElektronicznyContext, Ocena> ocenaRepo,
-            GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
-            GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
-            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
-            GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo,
-            GenericRepository<DziennikElektronicznyContext, Lekcja> lekcjaRepo,
-            GenericRepository<DziennikElektronicznyContext, Obecnosc> obecnoscRepo,
-            GenericRepository<DziennikElektronicznyContext, ListaObecnosci> listaObecnosciRepo,
+            IGenericRepository<Wiadomosc> wiadomoscRepo,
+            IGenericRepository<Uwaga> uwagaRepo,
+            IGenericRepository<Ocena> ocenaRepo,
+            IGenericRepository<JednostkaLekcyjna> jednostkaLekcyjnaRepo,
+            IGenericRepository<Uczen> uczenRepo,
+            IGenericRepository<PlanLekcji> planLekcjiRepo,
+            IGenericRepository<Przedmiot> przedmiotRepo,
+            IGenericRepository<Lekcja> lekcjaRepo,
+            IGenericRepository<Obecnosc> obecnoscRepo,
+            IGenericRepository<ListaObecnosci> listaObecnosciRepo,
         IMapper mapper
 
             )

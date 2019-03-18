@@ -11,23 +11,23 @@ namespace DziennikElektroniczny.Services.AdminService
 {
     public class AdminService : IAdminService
     {
-        private GenericRepository<DziennikElektronicznyContext, Uzytkownik> _uzytkownikRepo;
-        private GenericRepository<DziennikElektronicznyContext, Klasa> _klasaRepo;
-        private GenericRepository<DziennikElektronicznyContext, Uczen> _uczenRepo;
+        private IGenericRepository<Uzytkownik> _uzytkownikRepo;
+        private IGenericRepository<Klasa> _klasaRepo;
+        private IGenericRepository<Uczen> _uczenRepo;
         private IMapper _mapper;
-        private GenericRepository<DziennikElektronicznyContext, PlanLekcji> _planLekcjiRepo;
-        private GenericRepository<DziennikElektronicznyContext, Przedmiot> _przedmiotRepo;
-        private GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
+        private IGenericRepository<PlanLekcji> _planLekcjiRepo;
+        private IGenericRepository<Przedmiot> _przedmiotRepo;
+        private IGenericRepository<JednostkaLekcyjna> _jednostkaLekcyjnaRepo;
 
 
         public AdminService
             (
-            GenericRepository<DziennikElektronicznyContext, Uzytkownik> uzytkownikRepo,
-            GenericRepository<DziennikElektronicznyContext, Klasa> klasaRepo,
-            GenericRepository<DziennikElektronicznyContext, Uczen> uczenRepo,
-            GenericRepository<DziennikElektronicznyContext, PlanLekcji> planLekcjiRepo,
-            GenericRepository<DziennikElektronicznyContext, Przedmiot> przedmiotRepo,
-            GenericRepository<DziennikElektronicznyContext, JednostkaLekcyjna> jednostkaLekcyjnaRepo,
+            IGenericRepository<Uzytkownik> uzytkownikRepo,
+            IGenericRepository< Klasa> klasaRepo,
+            IGenericRepository<Uczen> uczenRepo,
+            IGenericRepository<PlanLekcji> planLekcjiRepo,
+            IGenericRepository<Przedmiot> przedmiotRepo,
+            IGenericRepository<JednostkaLekcyjna> jednostkaLekcyjnaRepo,
 
 
 
